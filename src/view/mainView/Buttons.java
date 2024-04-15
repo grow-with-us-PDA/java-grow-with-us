@@ -1,5 +1,6 @@
 package view.mainView;
 
+import controller.Controller;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -11,12 +12,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Buttons extends JPanel implements ActionListener {
+
+  Controller controller;
+
+  JLabel la_result = new JLabel("결과 출력");
+
   String[] texts = new String[]{"다음 날", "상점"};
   JButton[] buttons = new JButton[texts.length];
 
-  Buttons() {
+  Buttons(Controller controller) {
+    this.controller = controller;
+
     setBackground(Color.YELLOW);
-    setPreferredSize(new Dimension(300, 107));
+    setPreferredSize(new Dimension(300, 207));
     setLayout(new FlowLayout());
 
     for (int i = 0 ; i < texts.length ; i++) {
@@ -28,13 +36,21 @@ public class Buttons extends JPanel implements ActionListener {
 
       add(buttons[i]);
     }
+    add(la_result);
   }
 
   @Override
   public void actionPerformed(ActionEvent e) {
     for (int i = 0 ; i < texts.length ; i++) {
-      if (e.getSource() == buttons[i]) {
-        // 함수 실행. 작동까지 확인함.
+      if (e.getSource() == buttons[0]) {
+        String[] test = controller.weatherController.getWeathers();
+        la_result.setText(test[0]);
+        return;
+      }
+
+      if (e.getSource() == buttons[1]) {
+        controller.weatherController.updateWeathers();
+        return;
       }
     }
   }
