@@ -8,7 +8,7 @@ public class CropModel {
     DateModel dateModel;
 
     public static void main(String[] args) {
-        DateModel dateModel = new DateModel();
+
 
     }
 
@@ -36,7 +36,8 @@ public class CropModel {
     int imglevel;
 
 
-    CropModel(String name, int requiredDay, int seedPrice, int sellPrice, String[] img){
+    CropModel(DateModel dateModel, String name, int requiredDay, int seedPrice, int sellPrice, String[] img){
+        this.dateModel = dateModel;
         this.name = name;
         this.requiredDay = requiredDay;
         this.seedPrice = seedPrice;
