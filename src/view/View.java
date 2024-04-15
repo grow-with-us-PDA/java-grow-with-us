@@ -6,6 +6,8 @@ import controller.Controller;
 import controller.StoreController;
 import view.StoreView.StoreView;
 import view.mainView.MainView;
+import view.DetailView.DetailView;
+import controller.DetailController;
 
 public class View extends JFrame {
   Controller controller;
@@ -22,7 +24,13 @@ public class View extends JFrame {
     this.storeView = new StoreView(controller);
     add(mainView);
 
+    DetailController detailController = new DetailController();
+//    DetailView detailView=new DetailView();
+//    add(detailView);
+
+
     setSize(1133, 744);
+    setResizable(false);
     setVisible(true);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

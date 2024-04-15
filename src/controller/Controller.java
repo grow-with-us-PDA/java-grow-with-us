@@ -11,10 +11,6 @@ public class Controller {
         this.view = new View(this);
     }
 
-    int plus(){
-        return 1;
-    }
-
     public void goToStorePage() {
         view.showStoreView();
     }
