@@ -1,13 +1,26 @@
 package controller;
-
+import model.StoreModel;
 import view.View;
 
 public class Controller {
-  public WeatherController weatherController;
+    public StoreController storeController = new StoreController(new StoreModel());
+    public WeatherController weatherController;
+    final View view;
 
-  public Controller() {
-    weatherController = new WeatherController();
+    public Controller() {
+        this.view = new View(this);
+        weatherController = new WeatherController();
+    }
 
-    new View(this);
-  }
+    public void goToStorePage() {
+        view.showStoreView();
+    }
+
+    public void goToMainPage() {
+        view.showMainView();
+    }
+    public void goToDetailPage() {
+        view.showDetailView();
+    }
+
 }
