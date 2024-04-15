@@ -18,10 +18,10 @@ public class RightSide extends JPanel {
     setPreferredSize(new Dimension(300, 700));
     setBorder(BorderFactory.createEmptyBorder(10 , 10, 10 , 10));
 
-    setBackground(Color.DARK_GRAY);
+    setBackground(Color.RED);
     add(plantInfo,BorderLayout.NORTH);
     add(plantButtons);
 
-    add(buttons, BorderLayout.SOUTH);
+    add(buttons);
   }
 }
