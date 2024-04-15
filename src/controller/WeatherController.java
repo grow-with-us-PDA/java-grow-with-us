@@ -1,6 +1,5 @@
 package controller;
 
-
 import model.Weather;
 
 public class WeatherController {

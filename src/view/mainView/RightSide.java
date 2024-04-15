@@ -9,10 +9,9 @@ import javax.swing.JPanel;
 
 public class RightSide extends JPanel {
 
-
   RightSide(Controller controller) {
-    DayAndWeather weather = new DayAndWeather();
-    Buttons buttons = new Buttons(controller);
+    DayAndWeathers dayAndWeathers = new DayAndWeathers(controller);
+    Buttons buttons = new Buttons(controller, dayAndWeathers);
 
     setLayout(new BorderLayout());
     setPreferredSize(new Dimension(300, 700));
@@ -20,7 +19,7 @@ public class RightSide extends JPanel {
 
     setBackground(Color.DARK_GRAY);
 
-    add(weather, BorderLayout.NORTH);
+    add(dayAndWeathers, BorderLayout.NORTH);
     add(buttons, BorderLayout.SOUTH);
   }
 }

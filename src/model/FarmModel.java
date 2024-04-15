@@ -1,13 +1,17 @@
 package model;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 
 public class FarmModel {
     HashMap<Integer, CropModel> farm;
+    UserModel userModel;
+    public DateModel dateModel;
 
-    public FarmModel() {
+    public FarmModel(UserModel userModel, DateModel dateModel) {
         farm = new HashMap<>();
+        this.userModel = userModel;
         System.out.println("farm 초기화");
     }
 
@@ -15,7 +19,7 @@ public class FarmModel {
         if (farm.containsKey(location)) {
             System.out.println("이미 작물이 있습니다.");
         } else {
-            System.out.println("작물 심기 완료");
+            System.out.println("위치 " + location + "에 작물 심기 완료");
             farm.put(location, crop);
         }
     }
@@ -34,12 +38,29 @@ public class FarmModel {
 
     public void removeCropAtFarm(int location) { // 해당 location에 crop 삭제
         if (farm.containsKey(location)) {
-            System.out.println("작물 삭제 완료");
+            System.out.println("위치 " + location + "에 작물 삭제 완료");
             farm.remove(location);
         } else {
             System.out.println("해당 작물이 없습니다.");
         }
     }
+
+    public void buyCorn() { // corn 사기 -> 나중에 그냥 crop 사기로 바꾸기
+        Corn corn = new Corn(dateModel);
+        this.userModel.setMoney(-corn.seedPrice);
+        setCropAutoAtFarm(corn);
+    }
+
+    public void sellCrop(int location) { // location에 있는 작물 팔기
+        CropModel crop = farm.get(location);
+        removeCropAtFarm(location);
+        this.userModel.setMoney(crop.sellPrice);
+    }
+
+    public CropModel getCropByLocation(int location) { // 해당 location의 crop 가져오기
+        return this.farm.get(location);
+    }
+
 
     public HashMap<Integer, CropModel> getFarm() { // 현재 farm 상태 반환
         return this.farm;

@@ -8,23 +8,21 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Buttons extends JPanel implements ActionListener {
 
   Controller controller;
-
-  JLabel la_result = new JLabel("결과 출력");
-
+  DayAndWeathers dayAndWeathers;
   String[] texts = new String[]{"다음 날", "상점"};
   JButton[] buttons = new JButton[texts.length];
 
-  Buttons(Controller controller) {
+  Buttons(Controller controller, DayAndWeathers dayAndWeathers) {
     this.controller = controller;
+    this.dayAndWeathers = dayAndWeathers;
 
     setBackground(Color.YELLOW);
-    setPreferredSize(new Dimension(300, 207));
+    setPreferredSize(new Dimension(300, 107));
     setLayout(new FlowLayout());
 
     for (int i = 0 ; i < texts.length ; i++) {
@@ -36,20 +34,21 @@ public class Buttons extends JPanel implements ActionListener {
 
       add(buttons[i]);
     }
-    add(la_result);
   }
 
   @Override
   public void actionPerformed(ActionEvent e) {
     for (int i = 0 ; i < texts.length ; i++) {
+      // 다음날
       if (e.getSource() == buttons[0]) {
-        String[] test = controller.weatherController.getWeathers();
-        la_result.setText(test[0]);
+        controller.weatherController.updateWeathers();
+        dayAndWeathers.repaint();
         return;
       }
 
+      // 상점
       if (e.getSource() == buttons[1]) {
-        controller.weatherController.updateWeathers();
+        //
         return;
       }
     }
