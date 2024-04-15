@@ -6,10 +6,12 @@ import java.util.HashMap;
 public class FarmModel {
     HashMap<Integer, CropModel> farm;
     UserModel userModel;
+    DateModel dateModel;
 
-    public FarmModel(UserModel userModel) {
+    public FarmModel(UserModel userModel, DateModel dateModel) {
         farm = new HashMap<>();
         this.userModel = userModel;
+        this.dateModel = dateModel;
         System.out.println("farm 초기화");
     }
 
@@ -44,7 +46,7 @@ public class FarmModel {
     }
 
     public void buyCorn() { // corn 사기 -> 나중에 그냥 crop 사기로 바꾸기
-        Corn corn = new Corn();
+        Corn corn = new Corn(this.dateModel);
         this.userModel.setMoney(-corn.seedPrice);
         setCropAutoAtFarm(corn);
     }
@@ -58,6 +60,32 @@ public class FarmModel {
     public CropModel getCropByLocation(int location) { // 해당 location의 crop 가져오기
         return this.farm.get(location);
     }
+
+    public void updateNextDayCropStatus(){ // 다음날 crop status update
+        for (HashMap.Entry<Integer, CropModel> entry : farm.entrySet()) {
+            int location = entry.getKey();
+            CropModel crop = entry.getValue();
+            System.out.println("Location: " + location +", Name: "+crop.getName());
+            crop.updateNextDayCo2();
+            crop.updateNextDayFertilized();
+            crop.updateNextDayHumidity();
+            crop.updateNextDaySunshine();
+        }
+    }
+
+    public void getCropStatus(){ // 현재 crop 상태 출력
+        for (HashMap.Entry<Integer, CropModel> entry : farm.entrySet()) {
+            int location = entry.getKey();
+            CropModel crop = entry.getValue();
+            System.out.println("Location: " + location);
+            System.out.println("Name: "+crop.getName());
+            System.out.println("Humidity: " + crop.getHumidity());
+            System.out.println("Fertilized: " + crop.getFertilized());
+            System.out.println("Sunshine: " + crop.getSunshine());
+            System.out.println("CO2: " + crop.getCO2());
+        }
+    }
+
 
 
     public HashMap<Integer, CropModel> getFarm() { // 현재 farm 상태 반환
