@@ -16,7 +16,7 @@ public class Buttons extends JPanel implements ActionListener {
   JButton[] buttons = new JButton[texts.length];
 
   Buttons() {
-    setBackground(Color.YELLOW);
+
     setPreferredSize(new Dimension(300, 107));
     setLayout(new FlowLayout());
 
@@ -24,7 +24,7 @@ public class Buttons extends JPanel implements ActionListener {
 
       buttons[i] = new JButton(texts[i]);
 
-      buttons[i].setPreferredSize(new Dimension(300, 50));
+      buttons[i].setPreferredSize(new Dimension(300, 70));
       buttons[i].setFont(new Font("돋음", Font.PLAIN, 16));
       buttons[i].addActionListener(this);
 
