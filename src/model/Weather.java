@@ -17,8 +17,6 @@ public class Weather {
   public Weather() {
     todayWeather = getRandomWeather();
     tomorrowWeather = getRandomWeather();
-
-
   }
 
   public void updateWeather() {
