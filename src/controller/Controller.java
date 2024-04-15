@@ -31,6 +31,6 @@ public class Controller {
     detailController=new DetailController();
 
     new View(this);
-  }
+
 
 }
