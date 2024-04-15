@@ -25,12 +25,12 @@ public class View extends JFrame {
         this.detailView = new DetailView(controller);
 
         setSize(1133, 744);
-        setResizable(false);
+//    setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        add(mainView);
+        add(detailView);
     }
     // 메서드 사용법
     //    controller.storeController.plus();
