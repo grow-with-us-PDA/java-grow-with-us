@@ -197,6 +197,10 @@ public class CropModel {
         this.fertilized -= NEXT_DAY_STAT_DECREASE;
     }
 
+    // 다음날 될때 todayDone 배열 초기화
+    public void updateNextDayTodayDone(){
+        this.todayDone = new boolean[]{false, false, false, false, false};
+    }
 
 }
 
