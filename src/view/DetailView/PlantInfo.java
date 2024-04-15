@@ -17,6 +17,8 @@ public class PlantInfo extends JPanel {
     setBackground(Color.GRAY);
     setPreferredSize(new Dimension(300, 180));
 
+//    setLayout(new BorderLayout());
+
     setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
     la_humidity.setFont(new Font("돋움", Font.PLAIN, 16));
