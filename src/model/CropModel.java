@@ -45,13 +45,13 @@ public class CropModel {
     }
 
     // 수확까지 남은 날짜 조회
-    int getDateDiffInDays(){
+    public int getDateDiffInDays(){
         int day = dateModel.getDate();
         return endDate - day;
     }
 
     // 수확 날짜 계산해 imglevel 선정 후 이미지 반환
-    String levelimg(){
+    public String levelimg(){
         int leftday = getDateDiffInDays(); // 수확까지 남은 날짜
         int liveday = requiredDay - leftday; //살아온 날짜
 
@@ -109,32 +109,36 @@ public class CropModel {
     }
 
     //현재 상태, 가격 조회
-    boolean getisLive(){
+    public boolean getisLive(){
         return isLive;
     }
-    int getHumidity() {
+    public int getHumidity() {
         return humidity;
     }
 
-    int getSunshine() {
+    public int getSunshine() {
         return sunshine;
     }
 
-    int getCO2() {
+    public int getCO2() {
         return co2;
     }
 
-    int getFertilized() {
+    public int getFertilized() {
         return fertilized;
     }
 
-    int getsellPrice(){
+    public int getsellPrice(){
         if(isFullyGrowed = false)
             return 0;
         return sellPrice;
     }
 
-    boolean getGrow(){
+    public String getName(){
+        return name;
+    }
+
+    public boolean getGrow(){
         return isFullyGrowed;
     }
 
@@ -165,7 +169,7 @@ public class CropModel {
         return true;
     }
 
-    public boolean checkCo2(){
+    public boolean checkCO2(){
         if (co2 < ALIVE_RANGE[0])
             return false;
         return true;
