@@ -1,19 +1,14 @@
 package view.mainView;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
+import javax.swing.JPanel;
 
-public class Weather extends JFrame {
-
-  JTextField tf_num2 = new JTextField();
+public class Weather extends JPanel {
 
   Weather() {
-    setSize(260, 240);
-    setLayout(null);
-    setVisible(true);
-
-    tf_num2.setBounds(50, 50, 80, 40);
-    add(tf_num2);
-
+    setBackground(Color.CYAN);
+    setPreferredSize(new Dimension(300, 600));
   }
 }

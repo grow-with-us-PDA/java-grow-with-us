@@ -1,11 +1,13 @@
 package view.mainView;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Farm extends JPanel {
-  JTextField tf_num1 = new JTextField(20);
   Farm() {
-    add(tf_num1);
+    setBackground(Color.blue);
+    setPreferredSize(new Dimension(800, 600));
   }
 }
