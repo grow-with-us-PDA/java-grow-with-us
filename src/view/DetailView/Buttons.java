@@ -9,9 +9,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 public class Buttons extends JPanel implements ActionListener {
-  String[] texts = new String[]{"다음 날", "상점"};
+  String[] texts = new String[]{"팔기", "돌아가기"};
   JButton[] buttons = new JButton[texts.length];
 
   Buttons() {
@@ -20,6 +21,7 @@ public class Buttons extends JPanel implements ActionListener {
     setLayout(new FlowLayout());
 
     for (int i = 0 ; i < texts.length ; i++) {
+
       buttons[i] = new JButton(texts[i]);
 
       buttons[i].setPreferredSize(new Dimension(300, 50));

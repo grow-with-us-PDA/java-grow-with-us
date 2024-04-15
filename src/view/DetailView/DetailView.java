@@ -1,7 +1,11 @@
 package view.DetailView;
 
 import controller.Controller;
+
+
+
 import controller.DetailController;
+
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -12,13 +16,17 @@ import javax.swing.*;
 import view.View;
 
 public class DetailView extends JPanel {
+
   final Controller controller;
   Plant plant = new Plant();
   RightSide rightSide = new RightSide();
 
   public DetailView(Controller controller) {
     this.controller = controller;
+
     setLayout(new FlowLayout());
+    Plant plant = new Plant();
+    RightSide rightSide = new RightSide(controller);
 
     JButton goToMainButton = new JButton("메인페이지로");
     JButton goToStoreButton = new JButton("상점페이지로");
