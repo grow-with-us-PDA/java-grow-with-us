@@ -55,6 +55,10 @@ public class FarmModel {
         this.userModel.setMoney(crop.sellPrice);
     }
 
+    public CropModel getCropByLocation(int location) { // 해당 location의 crop 가져오기
+        return this.farm.get(location);
+    }
+
 
     public HashMap<Integer, CropModel> getFarm() { // 현재 farm 상태 반환
         return this.farm;
