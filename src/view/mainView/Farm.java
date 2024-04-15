@@ -1,13 +1,19 @@
 package view.mainView;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.*;
+import javax.swing.*;
 
 public class Farm extends JPanel {
-  Farm() {
+  FarmField[] farmField = new FarmField[9];
+  public Farm() {
     setBackground(Color.blue);
-    setPreferredSize(new Dimension(800, 600));
+
+    for (int i = 0; i < 9; i++) {
+      farmField[i] = new FarmField();
+      add(farmField[i]);
+    }
+    setLayout(new GridLayout(3,3)); // 3x3 그리드 레이아웃으로 변경
+    setPreferredSize(new Dimension(800, 700));
   }
+
 }
