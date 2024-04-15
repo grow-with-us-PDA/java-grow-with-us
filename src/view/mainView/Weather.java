@@ -9,6 +9,6 @@ public class Weather extends JPanel {
 
   Weather() {
     setBackground(Color.CYAN);
-    setPreferredSize(new Dimension(300, 600));
+    setPreferredSize(new Dimension(300, 200));
   }
 }

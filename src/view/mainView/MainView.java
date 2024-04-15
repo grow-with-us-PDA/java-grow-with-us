@@ -8,11 +8,12 @@ import view.View;
 
 public class MainView extends JPanel {
   Farm farm = new Farm();
-  Weather weather = new Weather();
+  RightSide rightSide = new RightSide();
+
   public MainView() {
     setLayout(new FlowLayout());
 
-    add(farm);
-    add(weather);
+    add(farm, BorderLayout.WEST);
+    add(rightSide, BorderLayout.EAST);
   }
 }
