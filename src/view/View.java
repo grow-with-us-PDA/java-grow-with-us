@@ -17,8 +17,8 @@ public class View extends JFrame {
     MainView mainView = new MainView(controller);
     add(mainView);
 
-    DetailView detailView=new DetailView();
-    add(detailView);
+//    DetailView detailView=new DetailView();
+//    add(detailView);
 
     setSize(1133, 744);
     setResizable(false);
