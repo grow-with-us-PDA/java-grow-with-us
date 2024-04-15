@@ -12,15 +12,26 @@ public class MainView extends JPanel {
   public MainView(Controller controller) {
     this.controller = controller;
 
-    JButton goToStoreButton = new JButton("Go to Store");
-    goToStoreButton.addActionListener(new ActionListener() {
+    JButton goToStoreButton = new JButton("상점페이지로");
+    JButton goToDetailButton = new JButton("상세페이지로");
+
+    ActionListener buttonActionListener = new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        controller.goToStorePage();
+        if (e.getSource() == goToStoreButton) {
+          controller.goToStorePage();
+        } else if (e.getSource() == goToDetailButton) {
+          controller.goToDetailPage();
+        }
       }
-    });
+    };
+
+    goToStoreButton.addActionListener(buttonActionListener);
+    goToDetailButton.addActionListener(buttonActionListener);
+
     JTextField tf_main = new JTextField("메인페이지입니다.");
     add(goToStoreButton);
+    add(goToDetailButton);
     add(tf_main);
 
     // 다른 UI 요소들 추가...

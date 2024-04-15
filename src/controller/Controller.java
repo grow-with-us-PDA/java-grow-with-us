@@ -1,14 +1,15 @@
 package controller;
-
 import model.StoreModel;
 import view.View;
 
 public class Controller {
     public StoreController storeController = new StoreController(new StoreModel());
+    public WeatherController weatherController;
     final View view;
 
-    public Controller(){
+    public Controller() {
         this.view = new View(this);
+        weatherController = new WeatherController();
     }
 
     public void goToStorePage() {
@@ -17,6 +18,9 @@ public class Controller {
 
     public void goToMainPage() {
         view.showMainView();
+    }
+    public void goToDetailPage() {
+        view.showDetailView();
     }
 
 }
