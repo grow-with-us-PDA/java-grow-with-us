@@ -23,7 +23,6 @@ public class CropModel {
     boolean[] todayDone;
     int imglevel;
 
-
     public CropModel(String name){
         this.name = name;
     }
@@ -89,6 +88,4 @@ public class CropModel {
 
 
 }
-
-
 

@@ -27,11 +27,13 @@ class CropInfo{
     int requiredDay;
     int seedPrice;
     int sellPrice;
+    String[] img;
 
     CropInfo(String name, int seedPrice, int sellPrice){
         this.name = name;
         this.seedPrice = seedPrice;
         this.sellPrice = sellPrice;
+        this.img = img;
     }
 }
 
