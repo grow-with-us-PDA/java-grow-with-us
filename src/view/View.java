@@ -1,10 +1,18 @@
 package view;
 
 import javax.swing.JFrame;
+
+import controller.Controller;
+import controller.StoreController;
+import view.StoreView.StoreView;
 import view.mainView.MainView;
 
 public class View extends JFrame {
-  public View() {
+  Controller controller;
+
+  public View(Controller controller) {
+    this.controller = controller;
+    controller.storeController.plus();
     setTitle("Main Frame");
 
     MainView mainView = new MainView();
