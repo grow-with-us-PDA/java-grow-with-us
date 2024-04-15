@@ -29,6 +29,7 @@ public class StoreView extends JPanel {
 
         JButton goToMainButton = new JButton("메인페이지로");
         JButton goToDetailButton = new JButton("상세페이지로");
+        Seeds seeds = new Seeds(controller);
 
         // 각 버튼의 위치와 크기 설정
         goToMainButton.setBounds(400, 0, 100, 30);
@@ -40,6 +41,7 @@ public class StoreView extends JPanel {
 
         add(goToMainButton); // 패널에 추가
         add(goToDetailButton); // 패널에 추가
+        add(seeds);
 
         JTextField tf_store = new JTextField("상점페이지입니다.");
         tf_store.setBounds(600, 0, 100, 30); // 위치와 크기 설정
