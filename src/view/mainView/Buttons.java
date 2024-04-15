@@ -14,6 +14,7 @@ public class Buttons extends JPanel implements ActionListener {
 
   Controller controller;
   MainView mainView;
+
   String[] texts = new String[]{"다음 날", "상점"};
   JButton[] buttons = new JButton[texts.length];
 

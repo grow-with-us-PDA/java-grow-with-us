@@ -1,20 +1,26 @@
 package controller;
 
+import model.DateModel;
 import model.WeatherModel;
 
 public class MainPageController {
-  WeatherModel weather;
+  WeatherModel weatherModel;
+  DateModel dateModel;
 
   public MainPageController() {
-     weather = new WeatherModel();
+    weatherModel = new WeatherModel();
+    dateModel = new DateModel();
   }
 
   public void clickNextDay() {
-    weather.updateWeather();
+    weatherModel.updateWeather();
   }
 
-
   public String[] getWeathers() {
-    return weather.getWeathers();
+    return weatherModel.getWeathers();
+  }
+
+  public int getDate() {
+    return dateModel.getDate();
   }
  }
