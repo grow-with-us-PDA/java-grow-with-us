@@ -1,11 +1,15 @@
 package view.mainView;
 
+import controller.Controller;
+
 import java.awt.*;
 import javax.swing.*;
 
 public class Farm extends JPanel {
   FarmField[] farmField = new FarmField[9];
-  public Farm() {
+  Controller controller;
+
+  public Farm(Controller controller) {
     setBackground(Color.blue);
 
     for (int i = 0; i < 9; i++) {
