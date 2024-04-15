@@ -1,6 +1,7 @@
 package model;
 
 public class Corn extends CropModel {
+
     public DateModel dateModel;
     Corn(DateModel dateModel) {
         super(dateModel,"옥수수", 90, 100, 150, new String[]{
