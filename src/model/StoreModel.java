@@ -9,10 +9,10 @@ public class StoreModel {
 }
 
 class Store {
-    CropInfo[] seed;
+    CropModel[] seed;
 
     Store(){
-        seed = new CropInfo[]{
+        seed = new CropModel[]{
                 new Corn(),
                 new Tomato(),
                 new Strawberry(),

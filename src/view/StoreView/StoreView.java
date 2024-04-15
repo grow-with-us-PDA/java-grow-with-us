@@ -19,7 +19,9 @@ public class StoreView extends JPanel {
                 controller.goToMainPage();
             }
         });
+        JTextField tf_store = new JTextField("상점페이지입니다.");
         add(goToMainButton);
+        add(tf_store);
 
         // 다른 UI 요소들 추가...
     }

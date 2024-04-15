@@ -19,7 +19,9 @@ public class MainView extends JPanel {
         controller.goToStorePage();
       }
     });
+    JTextField tf_main = new JTextField("메인페이지입니다.");
     add(goToStoreButton);
+    add(tf_main);
 
     // 다른 UI 요소들 추가...
   }
