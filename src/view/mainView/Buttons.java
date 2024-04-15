@@ -41,7 +41,7 @@ public class Buttons extends JPanel implements ActionListener {
     for (int i = 0 ; i < texts.length ; i++) {
       // 다음날
       if (e.getSource() == buttons[0]) {
-        controller.weatherController.updateWeathers();
+        controller.mainPageController.updateWeathers();
         dayAndWeathers.repaint();
         return;
       }

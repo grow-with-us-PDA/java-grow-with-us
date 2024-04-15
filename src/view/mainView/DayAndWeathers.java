@@ -27,7 +27,7 @@ public class DayAndWeathers extends JPanel {
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
 
-    String[] weathers = controller.weatherController.getWeathers();
+    String[] weathers = controller.mainPageController.getWeathers();
     String todayWeather = weathers[0];
     String tomorrowWeather = weathers[1];
 

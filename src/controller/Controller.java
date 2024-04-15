@@ -3,10 +3,10 @@ package controller;
 import view.View;
 
 public class Controller {
-  public WeatherController weatherController;
+  public MainPageController mainPageController;
 
   public Controller() {
-    weatherController = new WeatherController();
+    mainPageController = new MainPageController();
 
     new View(this);
   }
