@@ -50,7 +50,7 @@ public class Buttons extends JPanel implements ActionListener {
 
       // 상점
       if (e.getSource() == buttons[1]) {
-        //
+        controller.goToStorePage();
         return;
       }
     }

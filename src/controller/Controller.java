@@ -8,12 +8,12 @@ public class Controller {
   public DetailController detailController;
 
     public StoreController storeController = new StoreController(new StoreModel());
-    public WeatherController weatherController;
-    final View view;
+    public MainPageController mainPageController;
+    View view;
 
     public Controller() {
-        this.view = new View(this);
-        weatherController = new WeatherController();
+      this.view = new View(this);
+      this.mainPageController = new MainPageController();
     }
 
     public void goToStorePage() {
@@ -27,10 +27,6 @@ public class Controller {
         view.showDetailView();
     }
 
-
-    detailController=new DetailController();
-
-    new View(this);
   }
 
-}
+

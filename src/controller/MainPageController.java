@@ -14,6 +14,7 @@ public class MainPageController {
 
   public void clickNextDay() {
     weatherModel.updateWeather();
+    dateModel.updateDate();
   }
 
   public String[] getWeathers() {
