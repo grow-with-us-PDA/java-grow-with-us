@@ -15,9 +15,9 @@ public class View extends JFrame {
     setTitle("Main Frame");
 
     MainView mainView = new MainView(controller);
-    add(mainView);
+//    add(mainView);
 
-    DetailView detailView=new DetailView();
+    DetailView detailView=new DetailView(controller);
     add(detailView);
 
     setSize(1133, 744);
