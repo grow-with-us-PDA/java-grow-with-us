@@ -4,6 +4,7 @@ import controller.Controller;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -15,7 +16,6 @@ public class DayAndWeathers extends JPanel {
     this.controller = controller;
 
     la_todayWeather.setBounds(50, 140, 160, 40);
-
     add(la_todayWeather);
 
     setBackground(Color.CYAN);

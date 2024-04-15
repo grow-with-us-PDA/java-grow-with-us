@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 
 public class RightSide extends JPanel {
 
-
   RightSide(Controller controller) {
     DayAndWeathers dayAndWeathers = new DayAndWeathers(controller);
     Buttons buttons = new Buttons(controller, dayAndWeathers);
