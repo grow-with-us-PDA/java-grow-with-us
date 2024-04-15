@@ -1,11 +1,12 @@
 package controller;
+
 import model.StoreModel;
 import view.View;
 
 public class Controller {
 
 
-  public DetailController detailController;
+//  public DetailController detailController;
 
     public StoreController storeController = new StoreController(new StoreModel());
     public WeatherController weatherController;
@@ -14,6 +15,7 @@ public class Controller {
     public Controller() {
         this.view = new View(this);
         weatherController = new WeatherController();
+       // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
     }
 
     public void goToStorePage() {
@@ -27,10 +29,8 @@ public class Controller {
         view.showDetailView();
     }
 
-
-    detailController=new DetailController();
-
-    new View(this);
-
+//    detailController=new DetailController();
+//
+//    new View(this);
 
 }
