@@ -10,8 +10,5 @@ public class StoreController {
         this.storeModel = storeModel;
     }
 
-    public void plus() {
-    }
-
     // 아래에 메서드 호출
 }
