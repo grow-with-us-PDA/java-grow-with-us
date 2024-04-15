@@ -43,7 +43,7 @@ public class FarmModel {
         }
     }
 
-    public void buyCorn() { // corn 사기
+    public void buyCorn() { // corn 사기 -> 나중에 그냥 crop 사기로 바꾸기
         Corn corn = new Corn();
         this.userModel.setMoney(-corn.seedPrice);
         setCropAutoAtFarm(corn);
