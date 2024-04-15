@@ -70,6 +70,14 @@ public class CropModel {
         return this.sellPrice;
     }
 
+    boolean getGrow(){
+        return this.isFullyGrowed;
+    }
+
+    
+
+
+
     // 상태이상 요소 조회 (50보다 낮을시 false 반환)
     public boolean checkbadCrop(){
         if(this.humidity < ALIVE_RANGE[0])
