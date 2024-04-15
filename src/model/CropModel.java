@@ -17,8 +17,8 @@ public class CropModel {
 
     String name;
     int requiredDay;
-    int seedPrice;
-    int sellPrice;
+    int seedPrice; //살때 가격
+    int sellPrice; //팔때 최소 가격
     String[] img;
 
     int humidity = 100;
@@ -35,7 +35,8 @@ public class CropModel {
     boolean[] todayDone = {false, false, false, false, false};
     int imglevel;
 
-    CropModel(String name, int requiredDay, int seedPrice, int sellPrice, String[] img) {
+
+    CropModel(String name, int requiredDay, int seedPrice, int sellPrice, String[] img){
         this.name = name;
         this.requiredDay = requiredDay;
         this.seedPrice = seedPrice;
@@ -63,6 +64,7 @@ public class CropModel {
             return img[2];
 
         return img[0];
+
     }
 
     //물주기, 햇볕, CO2, 비료, 칭찬
@@ -88,6 +90,7 @@ public class CropModel {
         if(co2>ALIVE_RANGE[1]){
             isLive = false;
         }
+
     }
 
     public void fertilizedSupply(){
@@ -96,11 +99,13 @@ public class CropModel {
         if(fertilized>ALIVE_RANGE[1]){
             isLive = false;
         }
+
     }
 
     public void plusPrice(){
         sellPrice += STAT_INCREASE;
         todayDone[4] = true;
+
     }
 
     //현재 상태, 가격 조회
@@ -124,6 +129,8 @@ public class CropModel {
     }
 
     int getsellPrice(){
+        if(isFullyGrowed = false)
+            return 0;
         return sellPrice;
     }
 
@@ -171,9 +178,8 @@ public class CropModel {
     }
 
 
-
-
 }
+
 
 //부모 클래스 : CropInfo
 //자식 클래스 :
