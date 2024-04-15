@@ -3,6 +3,10 @@ import model.StoreModel;
 import view.View;
 
 public class Controller {
+
+
+  public DetailController detailController;
+
     public StoreController storeController = new StoreController(new StoreModel());
     public WeatherController weatherController;
     final View view;
@@ -22,5 +26,11 @@ public class Controller {
     public void goToDetailPage() {
         view.showDetailView();
     }
+
+
+    detailController=new DetailController();
+
+    new View(this);
+  }
 
 }
