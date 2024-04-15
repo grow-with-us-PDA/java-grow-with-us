@@ -201,6 +201,7 @@ public class CropModel {
 }
 
 
+
 //부모 클래스 : CropInfo
 //자식 클래스 :
 //  1. corn(옥수수)

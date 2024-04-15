@@ -1,12 +1,14 @@
 package model;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 
 public class FarmModel {
     HashMap<Integer, CropModel> farm;
     UserModel userModel;
-    DateModel dateModel;
+    public DateModel dateModel;
+
 
     public FarmModel(UserModel userModel, DateModel dateModel) {
         farm = new HashMap<>();
