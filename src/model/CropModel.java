@@ -27,7 +27,7 @@ public class CropModel {
     boolean[] todayDone;
     int imglevel;
 
-    CropModel(String name, int requiredDay, int seedPrice, int sellPrice, String[] img){
+    CropModel(String name, int requiredDay, int seedPrice, int sellPrice, String[] img) {
         this.name = name;
         this.requiredDay = requiredDay;
         this.seedPrice = seedPrice;
