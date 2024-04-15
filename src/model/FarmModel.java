@@ -20,6 +20,18 @@ public class FarmModel {
         }
     }
 
+    public void setCropAutoAtFarm(CropModel cropModel) { // 자동으로 남은 곳에 crop 심기
+        for (int i = 0; i < 9; i++) {
+            if (!farm.containsKey(i)) {
+                System.out.println("위치 " + i + "에 작물 심기 완료");
+                farm.put(i, cropModel);
+                return; // 작물을 한 번만 심도록 하기 위해 리턴
+            }
+        }
+        System.out.println("더 이상 심을 곳이 없습니다.");
+        return;
+    }
+
     public void removeCropAtFarm(int location) { // 해당 location에 crop 삭제
         if (farm.containsKey(location)) {
             System.out.println("작물 삭제 완료");
