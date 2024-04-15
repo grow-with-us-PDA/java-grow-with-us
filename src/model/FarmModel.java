@@ -1,13 +1,15 @@
 package model;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 
 public class FarmModel {
     HashMap<Integer, CropModel> farm;
     UserModel userModel;
+    public DateModel dateModel;
 
-    public FarmModel(UserModel userModel) {
+    public FarmModel(UserModel userModel, DateModel dateModel) {
         farm = new HashMap<>();
         this.userModel = userModel;
         System.out.println("farm 초기화");
@@ -44,7 +46,7 @@ public class FarmModel {
     }
 
     public void buyCorn() { // corn 사기 -> 나중에 그냥 crop 사기로 바꾸기
-        Corn corn = new Corn();
+        Corn corn = new Corn(dateModel);
         this.userModel.setMoney(-corn.seedPrice);
         setCropAutoAtFarm(corn);
     }
