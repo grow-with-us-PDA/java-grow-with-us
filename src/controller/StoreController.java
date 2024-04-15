@@ -8,7 +8,6 @@ public class StoreController {
 
     public StoreController(StoreModel storeModel){
         this.storeModel = storeModel;
-        new StoreView(this);
     }
 
     public void plus() {
