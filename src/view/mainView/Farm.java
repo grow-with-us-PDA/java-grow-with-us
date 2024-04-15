@@ -10,14 +10,20 @@ public class Farm extends JPanel {
   Controller controller;
 
   public Farm(Controller controller) {
-    setBackground(Color.blue);
+    this.controller = controller;
 
-    for (int i = 0; i < 9; i++) {
-      farmField[i] = new FarmField();
-      add(farmField[i]);
-    }
+    setBackground(Color.blue);
     setLayout(new GridLayout(3,3)); // 3x3 그리드 레이아웃으로 변경
     setPreferredSize(new Dimension(800, 700));
+
+    setFarmField();
+  }
+
+  public void setFarmField(){
+    for (int i = 0; i < 9; i++) {
+      farmField[i] = new FarmField(controller);
+      add(farmField[i]);
+    }
   }
 
 }
