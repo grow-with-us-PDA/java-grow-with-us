@@ -23,9 +23,8 @@ public class CropModel {
     boolean[] todayDone;
     int imglevel;
 
-
-    CropModel(String name){
-            this.name = name;
+    public CropModel(String name){
+        this.name = name;
     }
 
     //물주기, 햇볕, CO2, 비료, 칭찬
@@ -89,7 +88,4 @@ public class CropModel {
 
 
 }
-
-
-
 
