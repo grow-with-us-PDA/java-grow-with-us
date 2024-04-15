@@ -84,7 +84,7 @@ public class CropModel {
         }
     }
 
-    public void co2Supply(){
+    public void CO2Supply(){
         co2 += STAT_INCREASE;
         todayDone[2] = true;
         if(co2>ALIVE_RANGE[1]){
