@@ -3,12 +3,11 @@ package view.mainView;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 public class RightSide extends JPanel {
-  Weather weather = new Weather();
+  DayAndWeather weather = new DayAndWeather();
   Buttons buttons = new Buttons();
 
   RightSide() {
