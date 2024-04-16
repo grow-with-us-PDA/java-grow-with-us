@@ -1,35 +1,34 @@
 package controller;
 
 import com.sun.tools.javac.Main;
-import model.DateModel;
-import model.FarmModel;
-import model.StoreModel;
-import model.UserModel;
-import model.WeatherModel;
+import model.*;
 import view.View;
 
 import java.util.Date;
 
 public class Controller {
-//    public StoreController storeController = new StoreController(new StoreModel());
-    public MainPageController mainPageController;
-    public FarmController farmController;
 
-    public UserModel userModel;
-    public DateModel dateModel;
-    public FarmModel farmModel;
+//  public DetailController detailController;
+
+    public StoreController storeController;
+    public FarmController farmController;
+    public MainPageController mainPageController;
     final View view;
 
     public Controller() {
-        userModel = new UserModel();
-        dateModel = new DateModel();
-        farmModel = new FarmModel(userModel,dateModel);
-
         WeatherModel weatherModel = new WeatherModel();
-        DateModel dateModel =  new DateModel();
+        UserModel userModel = new UserModel();
+        DateModel dateModel = new DateModel();
+        FarmModel farmModel = new FarmModel(userModel,dateModel);
+        StoreModel storeModel = new StoreModel(dateModel, userModel,farmModel);
+
+
         this.mainPageController = new MainPageController(weatherModel, dateModel);
 
         farmController = new FarmController(farmModel);
+        mainPageController = new MainPageController(weatherModel,dateModel);
+       // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
+        storeController = new StoreController(storeModel);
 
         this.view = new View(this);
     }
