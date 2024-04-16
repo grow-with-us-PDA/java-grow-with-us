@@ -13,9 +13,6 @@ public class StoreController {
 
         this.storeModel = storeModel;
         cropList = storeModel.getCrops();
-        for (int i =0 ; i<cropList.length;i++){
-            System.out.println(cropList[i].name);
-        }
     }
 
     // 아래에 메서드 호출

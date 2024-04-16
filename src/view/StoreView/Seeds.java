@@ -55,7 +55,6 @@ public class Seeds extends JPanel {
         });
 
         try {
-            System.out.println(seedArray[index - 1].money);
             // money가 true일 경우 이미지를 보여줌
             if (money >= seedArray[index - 1].seedPrice) {
                 URL imageURL = new URL(seedArray[index - 1].image);
