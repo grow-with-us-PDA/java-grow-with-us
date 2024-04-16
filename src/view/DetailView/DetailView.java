@@ -20,15 +20,17 @@ import view.View;
 public class DetailView extends JPanel {
 
   Controller controller;
-  Plant plant = new Plant();
+  Plant plant;
   RightSide rightSide;
 
   public DetailView(Controller controller,CropModel cropModel) {
     this.controller = controller;
 
+//    System.out.println(cropModel.getName());
+
     setLayout(new FlowLayout());
-    this.plant = new Plant();
-    this.rightSide = new RightSide(controller);
+    this.plant = new Plant(cropModel);
+    this.rightSide = new RightSide(controller,cropModel);
 
 
 //    JTextField tf_detail = new JTextField("디테일페이지입니다.");
