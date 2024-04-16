@@ -2,13 +2,25 @@ package model;
 
 public class UserModel {
 
+    public String name;
     public int money;
 
     public UserModel() { // user 초기화
+
         this.money = 1500;
         System.out.println("user가 초기화 됐습니다.");
         System.out.println("현재 보유금액은 " + this.money + "원입니다.");
 
+    }
+
+    public void setName(String name){
+        System.out.println(name);
+        this.name=name;
+    }
+
+
+    public String getName(){
+        return this.name;
     }
 
     public boolean setMoney(int amount) { // amount만큼 money change
