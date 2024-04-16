@@ -71,6 +71,8 @@ public class CropModel {
     public String levelimg(){
 
         int leftday = getDateDiffInDays(); // 수확까지 남은 날짜
+        if(leftday<=0)
+            return img[2];
         int liveday = requiredDay - leftday; //살아온 날짜
         if(liveday/leftday < requiredDay/3)
             return img[0];
@@ -146,8 +148,10 @@ public class CropModel {
             return false;
         else if(co2<0)
             return false;
+
         return isLive;
     }
+
     public int getHumidity() {
         return humidity;
     }

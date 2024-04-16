@@ -21,29 +21,41 @@ public class Farm extends JPanel {
 
   public Farm(Controller controller) {
     this.controller = controller;
-//    setBackground(Color.blue);
     setLayout(new GridLayout(3, 3));
     setPreferredSize(new Dimension(800, 700));
-//    setCropAtField();
+
+    for(int i=0; i<9; i++){
+      controller.farmController.dieCrop(i);  //죽었는지 확인
+    }
     setFarmField();
+
   }
 
   private void setFarmField() {
+
     HashMap<Integer, CropModel> cropMap = controller.farmController.getFarm();
+
+    for (int i = 0; i < 9; i++) {
+      JPanel field = createEmptyField();
+      farmField[i] = field;
+//      add(field);
+    }
 
     for (Map.Entry<Integer, CropModel> crop : cropMap.entrySet()) {
       Integer cropLocation = crop.getKey();
       CropModel cropInfo = crop.getValue();
+
+
       JPanel field = createField(cropInfo, cropLocation);
       farmField[cropLocation] = field;
+//      add(field);
+    }
+
+    for (JPanel field: farmField) {
       add(field);
     }
 
-    for (int i = cropMap.size(); i < 9; i++) {
-      JPanel field = createEmptyField();
-      farmField[i] = field;
-      add(field);
-    }
+
   }
 
   private JPanel createField(CropModel cropInfo, int location) {
@@ -125,4 +137,6 @@ public class Farm extends JPanel {
     CropModel crop = controller.farmController.getFarm().get(1);
     System.out.println("클래스 확인: " + crop.getClass());
   }
+
+
 }

@@ -95,6 +95,9 @@ public class FarmModel {
 
     public void dieCrop(int location) {
         CropModel crop = farm.get(location);
+        if(crop ==null){
+            return;
+        }
         if (!crop.getisLive()) {
             removeCropAtFarm(location);
         }

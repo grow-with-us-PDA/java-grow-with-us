@@ -22,11 +22,5 @@ public class MainView extends JPanel {
         add(rightSide, BorderLayout.EAST);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
 
-        farm = new Farm(controller);
-    }
 }
-
