@@ -6,13 +6,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import model.CropModel;
 
 public class RightSide extends JPanel {
 
-  RightSide(Controller controller) {
-    PlantInfo plantInfo = new PlantInfo();
-    PlantButtons plantButtons = new PlantButtons(controller);
-    Buttons buttons = new Buttons(controller);
+  RightSide(Controller controller, CropModel cropModel) {
+    PlantInfo plantInfo = new PlantInfo(cropModel);
+    PlantButtons plantButtons = new PlantButtons(controller,cropModel);
+    Buttons buttons = new Buttons(controller,cropModel);
 
     setLayout(new BorderLayout());
     setPreferredSize(new Dimension(300, 700));

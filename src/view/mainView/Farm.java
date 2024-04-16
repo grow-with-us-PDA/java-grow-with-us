@@ -82,7 +82,7 @@ public class Farm extends JPanel {
 
         System.out.println(location);
         CropModel cropModel = controller.farmController.getFarm().get(location);
-        controller.detailController.makeDetailView(location, cropModel);
+        controller.detailController.makeDetailView(cropModel);
         controller.goToDetailPage();
       }
     };
