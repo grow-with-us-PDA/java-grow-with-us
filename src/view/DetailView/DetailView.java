@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import javax.swing.*;
 
 import model.CropModel;
@@ -23,7 +24,7 @@ public class DetailView extends JPanel {
   Plant plant;
   RightSide rightSide;
 
-  public DetailView(Controller controller,CropModel cropModel) {
+  public DetailView(Controller controller,CropModel cropModel) throws IOException {
     this.controller = controller;
 
 //    System.out.println(cropModel.getName());

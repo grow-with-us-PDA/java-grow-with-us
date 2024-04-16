@@ -17,10 +17,13 @@ import model.CropModel;
 public class PlantButtons extends JPanel implements ActionListener {
   String[] texts = new String[]{"물 주기(습도)", "햇볕 쬐기(햇볕)", "CO2 공급", "비료 주기(토양)", "칭찬하기"};
   JButton[] buttons = new JButton[texts.length];
+  CropModel cropModel;
+  PlantInfo plantInfo;
 
-  PlantButtons(Controller controller, CropModel cropModel) {
+  PlantButtons(Controller controller, CropModel cropModel, PlantInfo plantInfo) {
 
-
+    this.cropModel=cropModel;
+    this.plantInfo=plantInfo;
     setPreferredSize(new Dimension(30, 10));
     setLayout(new FlowLayout());
 
@@ -41,7 +44,25 @@ public class PlantButtons extends JPanel implements ActionListener {
   public void actionPerformed(ActionEvent e) {
     for (int i = 0 ; i < texts.length ; i++) {
       if (e.getSource() == buttons[i]) {
-        // 함수 실행. 작동까지 확인함.
+
+        if(i==0){
+          cropModel.waterSupply();
+//          System.out.println(cropModel.getHumidity());
+        }
+        else if(i==1){
+          cropModel.sunSupply();
+        }
+        else if(i==2){
+          cropModel.CO2Supply();
+        }
+        else if(i==3){
+          cropModel.fertilizedSupply();
+        }
+        else{
+          cropModel.plusPrice();
+        }
+
+        plantInfo.repaint();
       }
     }
   }
