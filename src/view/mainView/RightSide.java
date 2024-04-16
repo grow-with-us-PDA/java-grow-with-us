@@ -7,8 +7,9 @@ import javax.swing.*;
 
 public class RightSide extends JPanel {
   RightSide(Controller controller, MainView mainView) {
+    String name=controller.loginController.getName();
     DayAndWeathers dayAndWeathers = new DayAndWeathers(controller);
-    JLabel la_name = new JLabel("김영석" + "님의 농장 \uD83E\uDDD1\u200D\uD83C\uDF3E");
+    JLabel la_name = new JLabel("*** "+name + "님의 농장 ***");
     la_name.setFont(new Font("", Font.BOLD, 20));
     Buttons buttons = new Buttons(controller, mainView);
 
