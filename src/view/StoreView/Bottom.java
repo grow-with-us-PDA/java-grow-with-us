@@ -55,6 +55,7 @@ public class Bottom extends JPanel {
             JDialog dialog = optionPane.createDialog("알림");
             dialog.setLocation(dialog.getX() - 140, dialog.getY() - 50);
             dialog.setVisible(true);
+            controller.goToMainPage();
         }
     }
 }
