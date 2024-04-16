@@ -5,7 +5,7 @@ public class UserModel {
     public int money;
 
     public UserModel(DateModel dateModel) { // user 초기화
-        this.money = 1000;
+        this.money = 100;
         this.dateModel = dateModel;
         System.out.println("user가 초기화 됐습니다.");
         System.out.println("현재 보유금액은 " + this.money + "원입니다.");
@@ -23,6 +23,7 @@ public class UserModel {
         }
     }
 
+    // 자산 반환
     public int getMoney() { // 현재 보유금액 가져오기
         return this.money;
     }
