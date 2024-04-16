@@ -8,10 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import model.CropModel;
@@ -60,6 +57,12 @@ public class Buttons extends JPanel implements ActionListener {
             System.out.println("팔기팔기");
             System.out.println(cropModel);
             controller.storeController.sellCropByCrop(cropModel);
+
+            JOptionPane optionPane = new JOptionPane("판매 성공", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = optionPane.createDialog("알림");
+            dialog.setLocation(dialog.getX() - 140, dialog.getY() - 50);
+            dialog.setVisible(true);
+            controller.goToMainPage();
         }
         for (int i = 0; i < texts.length; i++) {
             if (e.getSource() == buttons[i]) {
