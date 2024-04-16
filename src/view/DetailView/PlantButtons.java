@@ -33,11 +33,14 @@ public class PlantButtons extends JPanel implements ActionListener {
 
       buttons[i].setPreferredSize(new Dimension(283, 55));
       buttons[i].setFont(new Font("돋음", Font.PLAIN, 16));
-
+      if(cropModel.getTodayDone()[i]){
+        buttons[i].setEnabled(false);
+      }
       if(i==0){
         if(!cropModel.checkWater()){
           buttons[i].setForeground(Color.RED);
         }
+
       }
       else if(i==1){
         if(!cropModel.checkSunshine()){
@@ -93,7 +96,42 @@ public class PlantButtons extends JPanel implements ActionListener {
     }
   }
 
+  @Override
+  protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
 
+    for (int i = 0 ; i < texts.length ; i++) {
+
+      if(cropModel.getTodayDone()[i]){
+        buttons[i].setEnabled(false);
+      }
+      if(i==0){
+        if(!cropModel.checkWater()){
+          buttons[i].setForeground(Color.RED);
+        }
+
+      }
+      else if(i==1){
+        if(!cropModel.checkSunshine()){
+          buttons[i].setForeground(Color.RED);
+        }
+
+      }
+      else if(i==2){
+        if(!cropModel.checkCO2()){
+          buttons[i].setForeground(Color.RED);
+        }
+
+      }
+      else if(i==3){
+        if(!cropModel.checkFertilized()){
+          buttons[i].setForeground(Color.RED);
+        }
+
+      }
+
+    }
+  }
 
 
 }

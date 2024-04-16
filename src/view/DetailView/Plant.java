@@ -8,6 +8,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import controller.Controller;
 import model.CropModel;
 
 public class Plant extends JPanel {
@@ -15,8 +17,9 @@ public class Plant extends JPanel {
 
   JLabel la_plantImage;
   ImageIcon img_icon;
-
-  Plant(CropModel cropModel) throws IOException {
+  Controller controller;
+  Plant(Controller controller, CropModel cropModel) throws IOException {
+    this.controller = controller;
     // 패널 설정
     setPreferredSize(new Dimension(800, 600));
     setLayout(null);
@@ -27,11 +30,20 @@ public class Plant extends JPanel {
 
     System.out.println(cropModel.levelimg());
 
-    URL imageURL = new URL(cropModel.levelimg());
-    Image image = ImageIO.read(imageURL);
-    ImageIcon img_icon = new ImageIcon(image);
-    this.img_icon=img_icon;
+    if(cropModel.checkbadCrop()){
+      URL imageURL = new URL(cropModel.levelimg());
+      Image image = ImageIO.read(imageURL);
+      ImageIcon img_icon = new ImageIcon(image);
+      this.img_icon=img_icon;
 
+    }else{
+      ImageIcon image = new ImageIcon("src/assets/plants/죽음.jpg");
+      int width = 300; // 최대 너비를 300으로 설정 (원하는 크기에 맞게 조절)
+      int height = 200; // 최대 높이를 300으로 설정 (원하는 크기에 맞게
+      Image scaledImage = image.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+      ImageIcon img_icon = new ImageIcon(scaledImage);
+      this.img_icon =img_icon;
+    }
     // la_plantName과 la_plantImage를 패널에 추가
     add(la_plantName);
     la_plantImage = new JLabel();

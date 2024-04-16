@@ -6,7 +6,6 @@ import model.FarmModel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -52,25 +51,31 @@ public class Farm extends JPanel {
     field.setLayout(new BorderLayout()); // BorderLayout으로 변경
     JLabel imageLabel = new JLabel();
     try {
-      URL imageURL = new URL(cropInfo.levelimg());
-      Image image = ImageIO.read(imageURL);
-      ImageIcon icon = new ImageIcon(image);
+      ImageIcon image;
+      if (controller.farmController.checkbadCrop(location)) {
+        URL imageURL = new URL(cropInfo.levelimg());
+        Image originalImage = ImageIO.read(imageURL);
+        int width = Math.min(originalImage.getWidth(null), 300); // 최대 너비를 300으로 설정 (원하는 크기에 맞게 조절)
+        int height = Math.min(originalImage.getHeight(null), 200); // 최대 높이를 300으로 설정 (원하는 크기에 맞게
+        Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        image = new ImageIcon(scaledImage);
+      } else {
+        ImageIcon originalIcon = new ImageIcon("src/assets/plants/죽음.jpg");
+        int width = 300; // 최대 너비를 300으로 설정 (원하는 크기에 맞게 조절)
+        int height = 200; // 최대 높이를 300으로 설정 (원하는 크기에 맞게
+        Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        image = new ImageIcon(scaledImage);
+      }
 
-      // 이미지의 크기를 컴포넌트의 크기에 맞게 조정
-      int width = Math.min(image.getWidth(null), 300); // 최대 너비를 300으로 설정 (원하는 크기에 맞게 조절)
-      int height = Math.min(image.getHeight(null), 200); // 최대 높이를 300으로 설정 (원하는 크기에 맞게 조절)
-      Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-      ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-      imageLabel.setIcon(scaledIcon);
-      field.addMouseListener(createMouseListener(location));
+      imageLabel.setIcon(image);
     } catch (IOException e) {
       e.printStackTrace();
     }
 
     JLabel la_cropName = new JLabel(cropInfo.getName());
     la_cropName.setFont(new Font("Arial", Font.PLAIN, 20)); // 예시로 Arial 글꼴, 평범한 스타일, 크기 14로 설정
-    field.add(imageLabel, BorderLayout.CENTER); // 이미지를 중앙에 추가
+    field.addMouseListener(createMouseListener(location));
+    field.add(imageLabel, BorderLayout.CENTER);
     field.add(la_cropName, BorderLayout.NORTH); // 라벨을 아래쪽에 추가
 
     return field;
@@ -82,7 +87,6 @@ public class Farm extends JPanel {
   private JPanel createEmptyField() {
     JPanel field = new JPanel();
     field.setBackground(Color.WHITE);
-//    field.setBorder(new LineBorder(Color.BLACK, 1));
 
     try {
       ImageIcon image = new ImageIcon("src/assets/plants/farm.jpg");

@@ -33,7 +33,7 @@ public class DetailView extends JPanel {
 //    System.out.println(cropModel.getName());
 
     setLayout(new FlowLayout());
-    this.plant = new Plant(cropModel);
+    this.plant = new Plant(controller, cropModel);
     this.rightSide = new RightSide(controller,cropModel);
 
 

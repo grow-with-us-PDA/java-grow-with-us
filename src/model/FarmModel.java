@@ -52,7 +52,7 @@ public class FarmModel {
     }
 
     public boolean getCanSeed() {
-        if(this.farm.size() == 9){
+        if (this.farm.size() == 9) {
             return false;
         }
         return true;
@@ -70,7 +70,7 @@ public class FarmModel {
 
     public boolean buyCropByStore(CropModel cropModel) {
         boolean canSeed = getCanSeed();
-        if(!canSeed){
+        if (!canSeed) {
             return false;
         }
         boolean isSetMoney = this.userModel.setMoney(-cropModel.seedPrice);
@@ -92,11 +92,21 @@ public class FarmModel {
         this.userModel.setMoney(crop.sellPrice);
     }
 
-    public void dieCrop(int location){
+    public void dieCrop(int location) {
         CropModel crop = farm.get(location);
-        if(!crop.getisLive()){
+        if (!crop.getisLive()) {
             removeCropAtFarm(location);
         }
+    }
+
+
+
+    public void sellCropByCrop(CropModel cropModel) {
+        int locationByCrop = getKeyFromValue(cropModel);
+        System.out.println("L :"+locationByCrop);
+        removeCropAtFarm(locationByCrop);
+        this.userModel.setMoney(cropModel.sellPrice);
+
     }
 
     public CropModel getCropByLocation(int location) { // 해당 location의 crop 가져오기
@@ -134,12 +144,21 @@ public class FarmModel {
         return this.farm;
     }
 
-    public static <K, V> K getKeyFromValue(HashMap<K, V> map, V value) {
-        for (HashMap.Entry<K, V> entry : map.entrySet()) {
-            if (value.equals(entry.getValue())) {
+//    public static <K, V> K getKeyFromValue(HashMap<K, V> map, V value) {
+//        for (HashMap.Entry<K, V> entry : map.entrySet()) {
+//            if (value.equals(entry.getValue())) {
+//                return entry.getKey();
+//            }
+//        }
+//        return null;
+//    }
+
+    public Integer getKeyFromValue(CropModel cropModel) {
+        for (HashMap.Entry<Integer, CropModel> entry : farm.entrySet()) {
+            if (cropModel.equals(entry.getValue())) {
                 return entry.getKey();
             }
         }
-        return null;
+        return null; // Return null if the cropModel is not found in the map
     }
 }
