@@ -41,7 +41,7 @@ public class Plant extends JPanel {
     int nameWidth = la_plantName.getPreferredSize().width;
     int nameHeight = la_plantName.getPreferredSize().height;
     int nameX = (getWidth() - nameWidth) / 2;
-    int nameY = 50;  // 상단에서 약간의 간격
+    int nameY = 30;  // 상단에서 약간의 간격
     la_plantName.setBounds(nameX, nameY, nameWidth, nameHeight);
 
     // la_plantImage 크기 조절 및 중앙 정렬

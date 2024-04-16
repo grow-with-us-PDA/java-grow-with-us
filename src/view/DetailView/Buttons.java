@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,15 +17,15 @@ public class Buttons extends JPanel implements ActionListener {
   JButton[] buttons = new JButton[texts.length];
 
   Buttons() {
-
-    setPreferredSize(new Dimension(300, 107));
+//    setBackground(Color.white);
+    setPreferredSize(new Dimension(300, 165));
     setLayout(new FlowLayout());
 
     for (int i = 0 ; i < texts.length ; i++) {
 
       buttons[i] = new JButton(texts[i]);
 
-      buttons[i].setPreferredSize(new Dimension(300, 70));
+      buttons[i].setPreferredSize(new Dimension(283, 70));
       buttons[i].setFont(new Font("돋음", Font.PLAIN, 16));
       buttons[i].addActionListener(this);
 
