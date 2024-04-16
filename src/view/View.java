@@ -11,10 +11,12 @@ import view.DetailView.DetailView;
 import controller.DetailController;
 
 public class View extends JFrame {
+
   Controller controller;
   private MainView mainView;
   private StoreView storeView;
   private DetailView detailView;
+
   public View(Controller controller) {
     // 메인 컨트롤러
     this.controller = controller;

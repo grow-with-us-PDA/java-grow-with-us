@@ -130,7 +130,7 @@ public class CropModel {
         return fertilized;
     }
 
-    public int getsellPrice(){
+    public int getSellPrice(){
         if(isFullyGrowed = false)
             return 0;
         return sellPrice;
@@ -142,6 +142,10 @@ public class CropModel {
 
     public boolean getGrow(){
         return isFullyGrowed;
+    }
+
+    public String[] getImg(){
+        return img;
     }
 
 
@@ -177,7 +181,7 @@ public class CropModel {
         return true;
     }
 
-    public boolean checkFetilized(){
+    public boolean checkFertilized(){
         if(fertilized <ALIVE_RANGE[0])
             return false;
         return true;

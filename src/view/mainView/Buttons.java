@@ -42,6 +42,8 @@ public class Buttons extends JPanel implements ActionListener {
       // 다음날
       if (e.getSource() == buttons[0]) {
         controller.mainPageController.clickNextDay();
+        controller.farmController.updateNextDayCropStatus();
+
         mainView.repaint();
         return;
       }

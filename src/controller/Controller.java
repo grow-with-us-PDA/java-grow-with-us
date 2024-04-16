@@ -24,7 +24,7 @@ public class Controller {
 
         farmController = new FarmController(farmModel);
         mainPageController = new MainPageController(weatherModel,dateModel);
-        // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
+       // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
         storeController = new StoreController(storeModel);
 
         this.view = new View(this);
