@@ -1,20 +1,18 @@
 package controller;
 
+import com.sun.tools.javac.Main;
 import model.DateModel;
 import model.FarmModel;
 import model.StoreModel;
 import model.UserModel;
+import model.WeatherModel;
 import view.View;
 
 import java.util.Date;
 
 public class Controller {
-
-//  public DetailController detailController;
-
-
-    public StoreController storeController = new StoreController(new StoreModel());
-    public WeatherController weatherController;
+//    public StoreController storeController = new StoreController(new StoreModel());
+    public MainPageController mainPageController;
     public FarmController farmController;
 
     public UserModel userModel;
@@ -27,9 +25,12 @@ public class Controller {
         dateModel = new DateModel();
         farmModel = new FarmModel(userModel,dateModel);
 
-        weatherController = new WeatherController();
-       // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
+        WeatherModel weatherModel = new WeatherModel();
+        DateModel dateModel =  new DateModel();
+        this.mainPageController = new MainPageController(weatherModel, dateModel);
+
         farmController = new FarmController(farmModel);
+
         this.view = new View(this);
     }
 
