@@ -16,7 +16,7 @@ public class Bottom extends JPanel {
 
         JPanel statusPanel = new JPanel(new BorderLayout());
         JLabel la_farmStatus = new JLabel("밭 현황");
-        JLabel la_farmCount = new JLabel("옥수수 1개, 사과 1개");
+        JLabel la_farmCount = new JLabel(this.controller.storeController.getFarmNameAndCount());
         la_farmStatus.setFont(new Font("", Font.BOLD, 24));
         la_farmCount.setFont(new Font("", Font.BOLD, 24));
         statusPanel.add(la_farmStatus, BorderLayout.NORTH);

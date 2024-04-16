@@ -1,6 +1,8 @@
 package controller;
 
 import model.StoreModel;
+
+import java.util.Map;
 //import view.StoreView.StoreView;
 
 public class StoreController {
@@ -19,7 +21,7 @@ public class StoreController {
         return this.storeModel.getUserModelByStoreModel().getMoney();
     }
 
-    public String getFarmCurrentStatus(){
-        return "";
+    public String getFarmNameAndCount(){
+        return this.storeModel.getFarmNameAndCount();
     }
 }
