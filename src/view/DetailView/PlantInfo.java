@@ -45,9 +45,6 @@ CropModel cropModel;
     la_fertilized.setText("토양: "+cropModel.getFertilized());
     la_sellPrice.setText("현재 가격: "+cropModel.getSellPrice());
 
-
-
-
     add(la_currentStatus);
     add(la_humidity);
     add(la_sunshine);
