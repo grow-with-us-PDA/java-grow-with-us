@@ -11,9 +11,11 @@ public class DetailController {
   private int location;
   Controller controller;
 
+  public DetailView detailView;
+
   public DetailController(Controller controller) {
     this.controller = controller;
-    new DetailView(this.controller);
+    //new DetailView(this.controller);
   }
 
   public void makeDetailView(int location, FarmModel farmModel) {
@@ -21,8 +23,12 @@ public class DetailController {
     this.location = location;
     this.cropModel = this.farmModel.getCropByLocation(location);
     // num으로 객체 찾고
-    DetailView detailView = new DetailView(controller);
+
+   this.detailView = new DetailView(controller,cropModel);
+
   }
+
+
 
   // 상태조회 (이미지,이름, 습도, 햇볕, 토양, 현재 가격)
   public String getLevelImg() {
