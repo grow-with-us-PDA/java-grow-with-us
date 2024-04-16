@@ -39,6 +39,8 @@ public class View extends JFrame {
   // 메서드 사용법
   //    controller.storeController.plus();
   public void showMainView() {
+    this.mainView = new MainView(controller);
+
     getContentPane().removeAll(); // 현재 컨텐츠를 제거
     add(mainView); // 메인 뷰 추가
     revalidate(); // 레이아웃 갱신
@@ -46,6 +48,7 @@ public class View extends JFrame {
   }
 
   public void showStoreView() {
+    this.storeView = new StoreView(controller);
     getContentPane().removeAll(); // 현재 컨텐츠를 제거
     add(storeView); // 스토어 뷰 추가
     revalidate(); // 레이아웃 갱신

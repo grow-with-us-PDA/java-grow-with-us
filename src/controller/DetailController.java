@@ -18,7 +18,7 @@ public class DetailController {
     //new DetailView(this.controller);
   }
 
-  public void makeDetailView(int location, CropModel cropModel) {
+  public void makeDetailView(CropModel cropModel) {
 //    this.farmModel = farmModel;
 //    this.location = location;
 //    this.cropModel = this.farmModel.getCropByLocation(location);

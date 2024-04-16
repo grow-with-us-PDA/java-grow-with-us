@@ -12,12 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import controller.Controller;
 import javax.swing.border.EmptyBorder;
+import model.CropModel;
 
 public class PlantButtons extends JPanel implements ActionListener {
   String[] texts = new String[]{"물 주기(습도)", "햇볕 쬐기(햇볕)", "CO2 공급", "비료 주기(토양)", "칭찬하기"};
   JButton[] buttons = new JButton[texts.length];
 
-  PlantButtons(Controller controller) {
+  PlantButtons(Controller controller, CropModel cropModel) {
 
 
     setPreferredSize(new Dimension(30, 10));
