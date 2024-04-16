@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+import model.CropModel;
+import model.FarmModel;
 import view.View;
 
 public class DetailView extends JPanel {

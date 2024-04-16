@@ -64,6 +64,7 @@ public class StoreModel {
         return cropDetailsArray;
     }
 
+
     public class CropDetails {
         public String name;
         public int seedPrice;
