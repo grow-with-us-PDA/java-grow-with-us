@@ -12,9 +12,9 @@ import java.awt.event.ActionListener;
 
 public class FarmField extends JPanel {
     Controller controller;
-    FarmController farmController;
 
-    public FarmField(Controller controller, FarmController farmController) {
+
+    public FarmField(Controller controller) {
         setBackground(Color.RED);
         setBorder(new LineBorder(Color.BLACK, 3));
         setPreferredSize(new Dimension(200, 200));
