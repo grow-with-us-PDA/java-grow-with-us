@@ -18,8 +18,7 @@ import view.View;
 public class DetailView extends JPanel {
 
   final Controller controller;
-  Plant plant;
-  RightSide rightSide;
+  Plant plant = new Plant();
 
   public DetailView(Controller controller) {
     this.controller = controller;

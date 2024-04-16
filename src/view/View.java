@@ -30,7 +30,7 @@ public class View extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-    add(mainView);
+    add(detailView);
   }
   // 메서드 사용법
   //    controller.storeController.plus();

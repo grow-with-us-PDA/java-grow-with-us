@@ -19,7 +19,7 @@ public class PlantButtons extends JPanel implements ActionListener {
   PlantButtons(Controller controller) {
 
     setBackground(Color.YELLOW);
-    setPreferredSize(new Dimension(300, 300));
+    setPreferredSize(new Dimension(30, 10));
     setLayout(new FlowLayout());
 
     for (int i = 0 ; i < texts.length ; i++) {
