@@ -22,5 +22,6 @@ public class RightSide extends JPanel {
     bottomPanel.add(la_name, BorderLayout.NORTH);
     bottomPanel.add(buttons, BorderLayout.SOUTH);
     add(bottomPanel, BorderLayout.SOUTH);
+
   }
 }
