@@ -23,7 +23,7 @@ public class DetailController {
 //    this.location = location;
 //    this.cropModel = this.farmModel.getCropByLocation(location);
 //    // num으로 객체 찾고
-s
+
    this.detailView = new DetailView(controller,cropModel);
 
   }
