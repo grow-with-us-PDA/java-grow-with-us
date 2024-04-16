@@ -58,7 +58,7 @@ public class Farm extends JPanel {
 
       // 이미지의 크기를 컴포넌트의 크기에 맞게 조정
       int width = Math.min(image.getWidth(null), 300); // 최대 너비를 300으로 설정 (원하는 크기에 맞게 조절)
-      int height = Math.min(image.getHeight(null), 300); // 최대 높이를 300으로 설정 (원하는 크기에 맞게 조절)
+      int height = Math.min(image.getHeight(null), 200); // 최대 높이를 300으로 설정 (원하는 크기에 맞게 조절)
       Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
       ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
