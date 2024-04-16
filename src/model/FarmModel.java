@@ -1,5 +1,7 @@
 package model;
 
+import controller.Controller;
+
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -8,12 +10,13 @@ public class FarmModel {
     HashMap<Integer, CropModel> farm;
     UserModel userModel;
     public DateModel dateModel;
+    private Controller controller;
 
-
-    public FarmModel(UserModel userModel, DateModel dateModel) {
+    public FarmModel(UserModel userModel, DateModel dateModel, Controller controller) {
         farm = new HashMap<>();
         this.userModel = userModel;
         this.dateModel = dateModel;
+        this.controller = controller;
         System.out.println("farm 초기화");
     }
 
@@ -27,6 +30,7 @@ public class FarmModel {
     }
 
     public boolean setCropAutoAtFarm(CropModel cropModel) { // 자동으로 남은 곳에 crop 심기
+        cropModel.startDate = controller.mainPageController.getDate();
         for (int i = 0; i < 9; i++) {
             if (!farm.containsKey(i)) {
                 System.out.println("위치 " + i + "에 작물 심기 완료");

@@ -1,5 +1,7 @@
 package model;
 
+import controller.Controller;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -10,12 +12,13 @@ public class StoreModel {
     DateModel dateModel;
     UserModel userModel;
     FarmModel farmModel;
-
-    public StoreModel(DateModel dateModel, UserModel userModel, FarmModel farmModel) {
+    Controller controller;
+    public StoreModel(DateModel dateModel, UserModel userModel, FarmModel farmModel, Controller controller) {
 
         this.userModel = userModel;
         this.dateModel = dateModel;
         this.farmModel = farmModel;
+        this.controller = controller;
 
         seed = new CropModel[]{
                 new Corn(dateModel),
@@ -70,6 +73,7 @@ public class StoreModel {
         public int seedPrice;
         public String image;
         public boolean money;
+        public int startDate;
     }
 
     // 현재 내가 가지고 있는 작물 이름과 갯수
