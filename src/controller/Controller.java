@@ -50,7 +50,7 @@ public class Controller {
         view.showMainView();
     }
     public void goToDetailPage() {
-        //view.showDetailView();
+        view.showDetailView();
     }
 
 }

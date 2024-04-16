@@ -2,6 +2,7 @@ package view.mainView;
 
 import controller.Controller;
 import model.CropModel;
+import model.FarmModel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -78,8 +79,11 @@ public class Farm extends JPanel {
       @Override
       public void mouseClicked(MouseEvent e) {
         super.mouseClicked(e);
-        controller.goToDetailPage();
+
         System.out.println(location);
+        FarmModel farmModel = controller.farmController.getFarmModel();
+        controller.detailController.makeDetailView(location, farmModel);
+        controller.goToDetailPage();
       }
     };
   }

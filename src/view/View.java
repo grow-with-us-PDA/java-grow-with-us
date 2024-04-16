@@ -51,8 +51,8 @@ public class View extends JFrame {
     revalidate(); // 레이아웃 갱신
     repaint(); // 다시 그리기
   }
-  public void showDetailView(CropModel cropModel) {
-    detailView=new DetailView(controller,cropModel);
+  public void showDetailView() {
+
     getContentPane().removeAll(); // 현재 컨텐츠를 제거
     add(controller.detailController.detailView); // 스토어 뷰 추가
     revalidate(); // 레이아웃 갱신
