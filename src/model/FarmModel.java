@@ -67,13 +67,18 @@ public class FarmModel {
         for (HashMap.Entry<Integer, CropModel> entry : farm.entrySet()) {
             int location = entry.getKey();
             CropModel crop = entry.getValue();
-            System.out.println("Location: " + location +", Name: "+crop.getName());
+            System.out.println("다음날 업데이트된 작물 Location: " + location +", Name: "+crop.getName());
             crop.updateNextDayCo2();
             crop.updateNextDayFertilized();
             crop.updateNextDayHumidity();
             crop.updateNextDaySunshine();
             crop.updateNextDayTodayDone();
         }
+    }
+
+    public void updateAllNextDay(){ // crop status 다 업데이트하고, 날짜 다음날로 업데이트
+        this.dateModel.updateDate();
+        updateNextDayCropStatus();
     }
 
     public void getCropStatus(){ // 현재 crop 상태 출력

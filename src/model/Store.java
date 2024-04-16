@@ -3,16 +3,16 @@ package model;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class StoreModel {
-    public DateModel dateModel;
-    Store store = new Store(dateModel);
-
-}
-
-class Store {
+public class Store {
     CropModel[] seed;
+    DateModel dateModel;
+    UserModel userModel;
 
-    Store(DateModel dateModel){
+    public Store(DateModel dateModel, UserModel userModel){
+
+        this.userModel = userModel;
+        this.dateModel = dateModel;
+
         seed = new CropModel[]{
                 new Corn(dateModel),
                 new Tomato(dateModel),
@@ -25,5 +25,10 @@ class Store {
                 new Rice(dateModel)
         };
         Arrays.sort(seed, Comparator.comparingInt(crop -> crop.seedPrice));
+
+
     }
+
+    // 유저 보유자산 조회
+    public int getMoney(){return userModel.getMoney();}
 }

@@ -1,12 +1,12 @@
 package controller;
 
-import model.StoreModel;
+import model.Store;
 import view.StoreView.StoreView;
 
 public class StoreController {
-    StoreModel storeModel;
+    Store storeModel;
 
-    public StoreController(StoreModel storeModel){
+    public StoreController(Store storeModel){
         this.storeModel = storeModel;
     }
 
