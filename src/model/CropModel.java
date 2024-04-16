@@ -2,6 +2,7 @@ package model;
 
 import java.time.Period;
 import java.util.Date;
+import java.util.Random;
 
 public class CropModel {
 
@@ -201,16 +202,24 @@ public class CropModel {
 
     // 다음날 될때 업데이트되는 값 humidity, sunshine, co2, fertilized
     public void updateNextDayHumidity(){
-        this.humidity -= NEXT_DAY_STAT_DECREASE;
+        Random random = new Random();
+        int randomDelta = random.nextInt(7) - 3; // -3부터 +3 사이의 랜덤 값 생성
+        this.humidity -= NEXT_DAY_STAT_DECREASE+randomDelta;
     }
     public void updateNextDaySunshine(){
-        this.sunshine -= NEXT_DAY_STAT_DECREASE;
+        Random random = new Random();
+        int randomDelta = random.nextInt(7) - 3; // -3부터 +3 사이의 랜덤 값 생성
+        this.sunshine -= NEXT_DAY_STAT_DECREASE+randomDelta;
     }
     public void updateNextDayCo2(){
-        this.co2 -= NEXT_DAY_STAT_DECREASE;
+        Random random = new Random();
+        int randomDelta = random.nextInt(7) - 3; // -3부터 +3 사이의 랜덤 값 생성
+        this.co2 -= NEXT_DAY_STAT_DECREASE+randomDelta;
     }
     public void updateNextDayFertilized(){
-        this.fertilized -= NEXT_DAY_STAT_DECREASE;
+        Random random = new Random();
+        int randomDelta = random.nextInt(7) - 3; // -3부터 +3 사이의 랜덤 값 생성
+        this.fertilized -= NEXT_DAY_STAT_DECREASE+randomDelta;
     }
 
     public void updateNextDayAct(){
