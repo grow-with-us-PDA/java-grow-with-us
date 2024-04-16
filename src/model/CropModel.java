@@ -131,6 +131,16 @@ public class CropModel {
 
     //현재 상태, 가격 조회
     public boolean getisLive(){
+        if(humidity<0){
+            return false;
+        }
+        else if(sunshine<0){
+            return false;
+        }
+        else if(fertilized<0)
+            return false;
+        else if(co2<0)
+            return false;
         return isLive;
     }
     public int getHumidity() {
