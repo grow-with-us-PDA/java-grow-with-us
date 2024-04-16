@@ -19,32 +19,20 @@ import view.View;
 
 public class DetailView extends JPanel {
 
+
   final Controller controller;
   DetailController detailController;
+
   Plant plant = new Plant();
   RightSide rightSide;
 
-  public DetailView(Controller controller) {
+  public DetailView(Controller controller,CropModel cropModel) {
     this.controller = controller;
 
     setLayout(new FlowLayout());
     this.plant = new Plant();
     this.rightSide = new RightSide(controller);
 
-    JButton goToMainButton = new JButton("메인페이지로");
-    JButton goToStoreButton = new JButton("상점페이지로");
-    ActionListener buttonActionListener = new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == goToStoreButton) {
-          controller.goToStorePage();
-        } else if (e.getSource() == goToMainButton) {
-          controller.goToMainPage();
-        }
-      }
-    };
-    goToMainButton.addActionListener(buttonActionListener);
-    goToStoreButton.addActionListener(buttonActionListener);
 
 //    JTextField tf_detail = new JTextField("디테일페이지입니다.");
 //    add(tf_detail);

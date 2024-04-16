@@ -2,6 +2,7 @@ package controller;
 
 import model.CropModel;
 import model.FarmModel;
+import view.mainView.Farm;
 
 import java.util.HashMap;
 
@@ -14,6 +15,10 @@ public class FarmController {
 
     public HashMap<Integer, CropModel> getFarm(){
         return farmModel.getFarm();
+    }
+
+    public FarmModel getFarmModel(){
+        return farmModel;
     }
 
     public void buyCorn(){
@@ -35,6 +40,5 @@ public class FarmController {
     public void getCropStatus(){
         farmModel.getCropStatus();
     }
-
 
 }

@@ -20,7 +20,8 @@ public class StoreView extends JPanel {
         add(la_title);
 
         // 금액을 담을 Money 패널 추가
-        moneyPanel = new Money(1000);
+        int money = this.controller.storeController.getMoney(); // controller에서 money 가져오기
+        moneyPanel = new Money(money);
         add(moneyPanel);
 
         // 씨앗 목록 추가

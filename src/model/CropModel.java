@@ -71,43 +71,50 @@ public class CropModel {
 
     //물주기, 햇볕, CO2, 비료, 칭찬
     public void waterSupply(){
-        humidity += STAT_INCREASE;
-        todayDone[0] = true;
-        if(humidity>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[0]){
+            humidity += STAT_INCREASE;
+            todayDone[0] = true;
+            if(humidity>ALIVE_RANGE[1]) {
+                isLive = false;
+            }
         }
     }
 
     public void sunSupply(){
-        sunshine += STAT_INCREASE;
-        todayDone[1] = true;
-        if(sunshine>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[1]){
+            sunshine += STAT_INCREASE;
+            todayDone[1] = true;
+            if(sunshine>ALIVE_RANGE[1]) {
+                isLive = false;
+            }
         }
     }
 
     public void CO2Supply(){
-        co2 += STAT_INCREASE;
-        todayDone[2] = true;
-        if(co2>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[2]){
+            co2 += STAT_INCREASE;
+            todayDone[2] = true;
+            if(co2>ALIVE_RANGE[1]){
+                isLive = false;
+            }
         }
-
     }
 
     public void fertilizedSupply(){
-        fertilized += STAT_INCREASE;
-        todayDone[3] = true;
-        if(fertilized>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[3]){
+            fertilized += STAT_INCREASE;
+            todayDone[3] = true;
+            if(fertilized>ALIVE_RANGE[1]){
+                isLive = false;
+            }
         }
-
     }
 
     public void plusPrice(){
-        sellPrice += STAT_INCREASE;
-        todayDone[4] = true;
-
+        if(!todayDone[4]){
+            sellPrice += STAT_INCREASE;
+            todayDone[4] = true;
+        }
     }
 
     //현재 상태, 가격 조회
@@ -142,6 +149,10 @@ public class CropModel {
 
     public boolean getGrow(){
         return isFullyGrowed;
+    }
+
+    public String[] getImg(){
+        return img;
     }
 
 

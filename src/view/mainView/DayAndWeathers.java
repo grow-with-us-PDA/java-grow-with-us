@@ -88,12 +88,12 @@ public class DayAndWeathers extends JPanel {
 
     la_date.setText("DAY " + date);
 
-    ImageIcon todayWeatherIcon = new ImageIcon("src/assets/weatherIcons/" + weathers[0] + ".png");
-    la_todayWeatherIcon.setIcon(resizeImage(todayWeatherIcon, 16*todayIconRatio, 15*todayIconRatio));
+    ImageIcon img_todayWeatherIcon = new ImageIcon("src/assets/weatherIcons/" + weathers[0] + ".png");
+    la_todayWeatherIcon.setIcon(resizeImage(img_todayWeatherIcon, 16*todayIconRatio, 15*todayIconRatio));
     la_todayWeatherText.setText("  " + weathers[0]);
 
-    ImageIcon tomorrowWeatherIcon = new ImageIcon("src/assets/weatherIcons/" + weathers[1] + ".png");
-    la_tomorrowWeatherIcon.setIcon(resizeImage(tomorrowWeatherIcon, 16*tomorrowIconRatio, 15*tomorrowIconRatio));
+    ImageIcon img_tomorrowWeatherIcon = new ImageIcon("src/assets/weatherIcons/" + weathers[1] + ".png");
+    la_tomorrowWeatherIcon.setIcon(resizeImage(img_tomorrowWeatherIcon, 16*tomorrowIconRatio, 15*tomorrowIconRatio));
   }
 
   private ImageIcon resizeImage(ImageIcon icon, int width, int height) {
