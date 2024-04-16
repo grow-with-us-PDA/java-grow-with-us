@@ -4,6 +4,6 @@ import view.DetailView.DetailView;
 public class Main {
   public static void main(String[] args) {
 
-    new DetailView(new Controller());
+    new Controller();
   }
 }
