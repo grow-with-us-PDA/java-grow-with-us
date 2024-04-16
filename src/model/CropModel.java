@@ -46,10 +46,15 @@ public class CropModel {
         this.img = img;
     }
 
+    // 시작 날짜 저장
+    public void setStartDate(int startDate){
+        this.startDate = startDate;
+    }
+
     // 수확까지 남은 날짜 조회
     public int getDateDiffInDays(){
         int day = dateModel.getDate();
-        return endDate - day;
+        return endDate-day;
     }
 
     // 수확 날짜 계산해 imglevel 선정 후 이미지 반환
@@ -71,43 +76,50 @@ public class CropModel {
 
     //물주기, 햇볕, CO2, 비료, 칭찬
     public void waterSupply(){
-        humidity += STAT_INCREASE;
-        todayDone[0] = true;
-        if(humidity>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[0]){
+            humidity += STAT_INCREASE;
+            todayDone[0] = true;
+            if(humidity>ALIVE_RANGE[1]) {
+                isLive = false;
+            }
         }
     }
 
     public void sunSupply(){
-        sunshine += STAT_INCREASE;
-        todayDone[1] = true;
-        if(sunshine>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[1]){
+            sunshine += STAT_INCREASE;
+            todayDone[1] = true;
+            if(sunshine>ALIVE_RANGE[1]) {
+                isLive = false;
+            }
         }
     }
 
     public void CO2Supply(){
-        co2 += STAT_INCREASE;
-        todayDone[2] = true;
-        if(co2>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[2]){
+            co2 += STAT_INCREASE;
+            todayDone[2] = true;
+            if(co2>ALIVE_RANGE[1]){
+                isLive = false;
+            }
         }
-
     }
 
     public void fertilizedSupply(){
-        fertilized += STAT_INCREASE;
-        todayDone[3] = true;
-        if(fertilized>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[3]){
+            fertilized += STAT_INCREASE;
+            todayDone[3] = true;
+            if(fertilized>ALIVE_RANGE[1]){
+                isLive = false;
+            }
         }
-
     }
 
     public void plusPrice(){
-        sellPrice += STAT_INCREASE;
-        todayDone[4] = true;
-
+        if(!todayDone[4]){
+            sellPrice += STAT_INCREASE;
+            todayDone[4] = true;
+        }
     }
 
     //현재 상태, 가격 조회
@@ -199,6 +211,10 @@ public class CropModel {
     }
     public void updateNextDayFertilized(){
         this.fertilized -= NEXT_DAY_STAT_DECREASE;
+    }
+
+    public void updateNextDayAct(){
+        this.todayDone = new boolean[]{false, false, false, false, false};
     }
 
 

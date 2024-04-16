@@ -101,6 +101,7 @@ public class FarmModel {
             crop.updateNextDayFertilized();
             crop.updateNextDayHumidity();
             crop.updateNextDaySunshine();
+            crop.updateNextDayAct();
         }
     }
 

@@ -20,8 +20,11 @@ import view.View;
 
 public class DetailView extends JPanel {
 
+  DetailController detailController;
+
   Controller controller;
   Plant plant;
+
   RightSide rightSide;
 
   public DetailView(Controller controller,CropModel cropModel) throws IOException {
