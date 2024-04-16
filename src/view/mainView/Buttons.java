@@ -22,14 +22,13 @@ public class Buttons extends JPanel implements ActionListener {
     this.controller = controller;
     this.mainView = mainView;
 
-    setBackground(Color.YELLOW);
     setPreferredSize(new Dimension(300, 107));
     setLayout(new FlowLayout());
 
     for (int i = 0 ; i < texts.length ; i++) {
       buttons[i] = new JButton(texts[i]);
 
-      buttons[i].setPreferredSize(new Dimension(300, 50));
+      buttons[i].setPreferredSize(new Dimension(280, 50));
       buttons[i].setFont(new Font("돋음", Font.PLAIN, 16));
       buttons[i].addActionListener(this);
 
@@ -43,7 +42,6 @@ public class Buttons extends JPanel implements ActionListener {
       // 다음날
       if (e.getSource() == buttons[0]) {
         controller.mainPageController.clickNextDay();
-
         mainView.repaint();
         return;
       }
