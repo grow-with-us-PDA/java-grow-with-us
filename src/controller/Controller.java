@@ -5,7 +5,7 @@ import view.View;
 public class Controller {
     //  public DetailController detailController;
     DateModel dateModel = new DateModel();
-    UserModel userModel = new UserModel(dateModel);
+    UserModel userModel = new UserModel();
     FarmModel farmModel = new FarmModel(userModel,dateModel);
     public StoreController storeController = new StoreController(new StoreModel(dateModel, userModel, farmModel));
     public MainPageController mainPageController;
@@ -14,7 +14,7 @@ public class Controller {
     public Controller() {
         WeatherModel weatherModel = new WeatherModel();
         DateModel dateModel = new DateModel();
-        UserModel userModel = new UserModel(dateModel);
+        UserModel userModel = new UserModel();
         FarmModel farmModel = new FarmModel(userModel, dateModel);
 
 
