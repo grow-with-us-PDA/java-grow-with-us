@@ -1,6 +1,8 @@
 package controller;
 
 import model.StoreModel;
+
+import java.util.Map;
 //import view.StoreView.StoreView;
 
 public class StoreController {
@@ -19,7 +21,15 @@ public class StoreController {
         return this.storeModel.getUserModelByStoreModel().getMoney();
     }
 
-    public String getFarmCurrentStatus(){
-        return "";
+    public String getFarmNameAndCount(){
+        return this.storeModel.getFarmNameAndCount();
+    }
+
+    public void test(int selectedSeedIndex){
+        System.out.println("test" + selectedSeedIndex);
+    }
+
+    public boolean buyCropBySeedIndex(int seedIndex){
+        return this.storeModel.buyCropBySeedIndex(seedIndex);
     }
 }

@@ -24,7 +24,7 @@ public class Farm extends JPanel {
 //    setBackground(Color.blue);
     setLayout(new GridLayout(3, 3));
     setPreferredSize(new Dimension(800, 700));
-    setCropAtField();
+//    setCropAtField();
     setFarmField();
   }
 
