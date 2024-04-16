@@ -18,12 +18,12 @@ public class DetailController {
     //new DetailView(this.controller);
   }
 
-  public void makeDetailView(int location, FarmModel farmModel) {
-    this.farmModel = farmModel;
-    this.location = location;
-    this.cropModel = this.farmModel.getCropByLocation(location);
-    // num으로 객체 찾고
-
+  public void makeDetailView(int location, CropModel cropModel) {
+//    this.farmModel = farmModel;
+//    this.location = location;
+//    this.cropModel = this.farmModel.getCropByLocation(location);
+//    // num으로 객체 찾고
+s
    this.detailView = new DetailView(controller,cropModel);
 
   }

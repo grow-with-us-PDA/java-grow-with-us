@@ -81,8 +81,8 @@ public class Farm extends JPanel {
         super.mouseClicked(e);
 
         System.out.println(location);
-        FarmModel farmModel = controller.farmController.getFarmModel();
-        controller.detailController.makeDetailView(location, farmModel);
+        CropModel cropModel = controller.farmController.getFarm().get(location);
+        controller.detailController.makeDetailView(location, cropModel);
         controller.goToDetailPage();
       }
     };
