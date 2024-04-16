@@ -1,5 +1,6 @@
 package controller;
 
+import model.CropModel;
 import model.StoreModel;
 
 import java.util.Arrays;
@@ -41,5 +42,9 @@ public class StoreController {
 
     public boolean buyCropBySeedIndex(int seedIndex){
         return this.storeModel.buyCropBySeedIndex(seedIndex);
+    }
+
+    public void sellCropByCrop(CropModel cropModel){
+        this.storeModel.getFarmModelByStoreModel().sellCropByCrop(cropModel);
     }
 }
