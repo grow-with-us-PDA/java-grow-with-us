@@ -7,9 +7,8 @@ import javax.swing.JPanel;
 
 public class MainView extends JPanel {
 
-
     public MainView(Controller controller) {
-        Farm farm = new Farm();
+        Farm farm = new Farm(controller);
         RightSide rightSide = new RightSide(controller);
 
         setLayout(new FlowLayout());
