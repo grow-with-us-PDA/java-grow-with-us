@@ -51,7 +51,7 @@ public class StoreModel {
             CropDetails cropDetails = new CropDetails();
             cropDetails.name = crop.name;
             cropDetails.seedPrice = crop.seedPrice;
-            cropDetails.image = crop.img[0];
+            cropDetails.image = crop.img[2];
             if (crop.seedPrice > userMoney) {
                 cropDetails.money = false;
             } else {

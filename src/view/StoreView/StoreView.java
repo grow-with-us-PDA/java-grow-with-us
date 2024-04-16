@@ -1,6 +1,8 @@
 package view.StoreView;
 
 import controller.Controller;
+import model.StoreModel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,9 +11,10 @@ public class StoreView extends JPanel {
     private Money moneyPanel;
     private Bottom bottomPanel;
     private Seeds seeds;
-
+    private StoreModel.CropDetails[] seedArray;
     public StoreView(Controller controller) {
         this.controller = controller;
+        this.seedArray = controller.storeController.getCropDetails(); // 씨앗 정보 받아오기
 
         // 상점 제목 추가
         JLabel la_title = new JLabel("상점");
@@ -25,7 +28,7 @@ public class StoreView extends JPanel {
         add(moneyPanel);
 
         // 씨앗 목록 추가
-        seeds = new Seeds(controller);
+        seeds = new Seeds(controller, seedArray);
         add(seeds);
 
         // Bottom 패널 추가
