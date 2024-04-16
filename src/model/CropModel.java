@@ -46,10 +46,15 @@ public class CropModel {
         this.img = img;
     }
 
+    // 시작 날짜 저장
+    public void setStartDate(int startDate){
+        this.startDate = startDate;
+    }
+
     // 수확까지 남은 날짜 조회
     public int getDateDiffInDays(){
         int day = dateModel.getDate();
-        return endDate - day;
+        return endDate-day;
     }
 
     // 수확 날짜 계산해 imglevel 선정 후 이미지 반환
@@ -206,6 +211,10 @@ public class CropModel {
     }
     public void updateNextDayFertilized(){
         this.fertilized -= NEXT_DAY_STAT_DECREASE;
+    }
+
+    public void updateNextDayAct(){
+        this.todayDone = new boolean[]{false, false, false, false, false};
     }
 
 
