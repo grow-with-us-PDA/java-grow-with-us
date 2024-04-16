@@ -28,7 +28,7 @@ public class StoreView extends JPanel {
         add(moneyPanel);
 
         // 씨앗 목록 추가
-        seeds = new Seeds(controller, seedArray);
+        seeds = new Seeds(controller, seedArray, money);
         add(seeds);
 
         // Bottom 패널 추가

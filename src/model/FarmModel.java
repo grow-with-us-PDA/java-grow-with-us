@@ -26,16 +26,16 @@ public class FarmModel {
         }
     }
 
-    public void setCropAutoAtFarm(CropModel cropModel) { // 자동으로 남은 곳에 crop 심기
+    public boolean setCropAutoAtFarm(CropModel cropModel) { // 자동으로 남은 곳에 crop 심기
         for (int i = 0; i < 9; i++) {
             if (!farm.containsKey(i)) {
                 System.out.println("위치 " + i + "에 작물 심기 완료");
                 farm.put(i, cropModel);
-                return; // 작물을 한 번만 심도록 하기 위해 리턴
+                return true; // 작물을 한 번만 심도록 하기 위해 리턴
             }
         }
         System.out.println("더 이상 심을 곳이 없습니다.");
-        return;
+        return false;
     }
 
     public void removeCropAtFarm(int location) { // 해당 location에 crop 삭제
@@ -47,22 +47,36 @@ public class FarmModel {
         }
     }
 
+    public boolean getCanSeed() {
+        if(this.farm.size() == 9){
+            return false;
+        }
+        return true;
+    }
+
     public void buyCorn() { // corn 사기 -> 나중에 그냥 crop 사기로 바꾸기
         Corn corn = new Corn(this.dateModel);
         boolean isSetMoney = this.userModel.setMoney(-corn.seedPrice);
-        if(isSetMoney){
+        if (isSetMoney) {
             setCropAutoAtFarm(corn);
-        }else{
+        } else {
             System.out.println("돈 없어서 작물 심기 실패");
         }
     }
 
-    public boolean buyCropByStore(CropModel cropModel){
+    public boolean buyCropByStore(CropModel cropModel) {
+        boolean canSeed = getCanSeed();
+        if(!canSeed){
+            return false;
+        }
         boolean isSetMoney = this.userModel.setMoney(-cropModel.seedPrice);
-        if(isSetMoney){
-            setCropAutoAtFarm(cropModel);
-            return true;
-        }else{
+        if (isSetMoney) {
+            boolean canCropAutoAtFarm = setCropAutoAtFarm(cropModel);
+            if (canCropAutoAtFarm) {
+                return true;
+            }
+            return false;
+        } else {
             System.out.println("돈 없어서 작물 심기 실패");
             return false;
         }
@@ -78,11 +92,11 @@ public class FarmModel {
         return this.farm.get(location);
     }
 
-    public void updateNextDayCropStatus(){ // 다음날 crop status update
+    public void updateNextDayCropStatus() { // 다음날 crop status update
         for (HashMap.Entry<Integer, CropModel> entry : farm.entrySet()) {
             int location = entry.getKey();
             CropModel crop = entry.getValue();
-            System.out.println("Location: " + location +", Name: "+crop.getName());
+            System.out.println("Location: " + location + ", Name: " + crop.getName());
             crop.updateNextDayCo2();
             crop.updateNextDayFertilized();
             crop.updateNextDayHumidity();
@@ -91,19 +105,18 @@ public class FarmModel {
         }
     }
 
-    public void getCropStatus(){ // 현재 crop 상태 출력
+    public void getCropStatus() { // 현재 crop 상태 출력
         for (HashMap.Entry<Integer, CropModel> entry : farm.entrySet()) {
             int location = entry.getKey();
             CropModel crop = entry.getValue();
             System.out.println("Location: " + location);
-            System.out.println("Name: "+crop.getName());
+            System.out.println("Name: " + crop.getName());
             System.out.println("Humidity: " + crop.getHumidity());
             System.out.println("Fertilized: " + crop.getFertilized());
             System.out.println("Sunshine: " + crop.getSunshine());
             System.out.println("CO2: " + crop.getCO2());
         }
     }
-
 
 
     public HashMap<Integer, CropModel> getFarm() { // 현재 farm 상태 반환
