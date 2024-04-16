@@ -99,5 +99,9 @@ public class DetailController {
     farmModel.sellCrop(location);
   }
 
+  public void getTodayDone(){
+    cropModel.getTodayDone();
+  }
+
 
 }

@@ -46,6 +46,10 @@ public class CropModel {
         this.img = img;
     }
 
+    public boolean[] getTodayDone(){
+        return todayDone;
+    }
+
     // 시작 날짜 저장
     public void setStartDate(int startDate){
         this.startDate = startDate;
