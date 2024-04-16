@@ -33,7 +33,7 @@ public class StoreView extends JPanel {
         add(bottomPanel);
 
         // Bottom 패널에 메서드 호출을 위한 선택된 씨앗 정보 설정
-        bottomPanel.setSelectedSeedIndex(seeds.getSelectedSeedIndex());
+//        bottomPanel.setSelectedSeedIndex(seeds.getSelectedSeedIndex());
     }
 
     public void setMoney(int money) {

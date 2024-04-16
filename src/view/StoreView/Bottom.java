@@ -35,11 +35,14 @@ public class Bottom extends JPanel {
 
         // 돌아가기 버튼 ActionListener 추가
         comeback.addActionListener(e -> controller.goToMainPage());
+        purchase.addActionListener(e -> controller.storeController.test(this.selectedSeedIndex));
     }
 
     // 선택된 씨앗의 인덱스를 설정하는 메서드
-    public void setSelectedSeedIndex(int index) {
-        this.selectedSeedIndex = index;
-    }
+//    public void setSelectedSeedIndex(int index)
+//    {
+//        System.out.println(index);
+//        this.selectedSeedIndex = index;
+//    }
 
 }

@@ -24,4 +24,8 @@ public class StoreController {
     public String getFarmNameAndCount(){
         return this.storeModel.getFarmNameAndCount();
     }
+
+    public void test(int selectedSeedIndex){
+        System.out.println("test" + selectedSeedIndex);
+    }
 }
