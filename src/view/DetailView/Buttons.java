@@ -1,5 +1,6 @@
 package view.DetailView;
 
+import controller.Controller;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -16,9 +17,9 @@ public class Buttons extends JPanel implements ActionListener {
   String[] texts = new String[]{"팔기", "돌아가기"};
   JButton[] buttons = new JButton[texts.length];
 
-  Buttons() {
+  Buttons(Controller controller) {
 
-    setPreferredSize(new Dimension(300, 107));
+    setPreferredSize(new Dimension(300, 160));
 
     setLayout(new FlowLayout());
 
@@ -32,6 +33,19 @@ public class Buttons extends JPanel implements ActionListener {
 
       add(buttons[i]);
     }
+
+
+    ActionListener buttonActionListener = new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+      if (e.getSource() == buttons[1]) {
+          controller.goToMainPage();
+        }
+      }
+    };
+    buttons[1].addActionListener(buttonActionListener);
+
+
   }
 
   @Override

@@ -20,7 +20,7 @@ public class PlantButtons extends JPanel implements ActionListener {
   PlantButtons(Controller controller) {
 
 
-    setPreferredSize(new Dimension(300, 300));
+    setPreferredSize(new Dimension(30, 10));
     setLayout(new FlowLayout());
 
 
