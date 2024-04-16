@@ -17,6 +17,7 @@ import java.util.Map;
 
 public class Farm extends JPanel {
   private final JPanel[] farmField = new JPanel[9];
+
   private final Controller controller;
 
   public Farm(Controller controller) {
@@ -49,7 +50,6 @@ public class Farm extends JPanel {
   private JPanel createField(CropModel cropInfo, int location) {
     JPanel field = new JPanel();
     field.setLayout(new BorderLayout()); // BorderLayout으로 변경
-
     JLabel imageLabel = new JLabel();
     try {
       URL imageURL = new URL(cropInfo.levelimg());
@@ -82,7 +82,16 @@ public class Farm extends JPanel {
   private JPanel createEmptyField() {
     JPanel field = new JPanel();
     field.setBackground(Color.WHITE);
-    field.setBorder(new LineBorder(Color.BLACK, 1));
+//    field.setBorder(new LineBorder(Color.BLACK, 1));
+
+    try {
+      ImageIcon image = new ImageIcon("src/assets/plants/farm.jpg");
+      JLabel jLabel = new JLabel(image);
+      field.add(jLabel);
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
 
     return field;
   }
@@ -95,7 +104,11 @@ public class Farm extends JPanel {
 
         System.out.println(location);
         CropModel cropModel = controller.farmController.getFarm().get(location);
-        controller.detailController.makeDetailView(cropModel);
+        try {
+          controller.detailController.makeDetailView(cropModel);
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        }
         controller.goToDetailPage();
       }
     };

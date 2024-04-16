@@ -42,7 +42,7 @@ public class Bottom extends JPanel {
     }
 
     // 씨앗 클릭 처리 메서드
-    private void handlePurchase() {
+    public void handlePurchase(){
         selectedSeedIndex = seeds.getSelectedSeedIndex();
         boolean isPurchased = this.controller.storeController.buyCropBySeedIndex(selectedSeedIndex);
         if (!isPurchased) {
@@ -59,3 +59,5 @@ public class Bottom extends JPanel {
         }
     }
 }
+
+
