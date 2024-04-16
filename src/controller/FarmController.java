@@ -41,4 +41,9 @@ public class FarmController {
         farmModel.getCropStatus();
     }
 
+    public boolean checkbadCrop(int location){
+        return getFarm().get(location).checkbadCrop();
+    }
+
+
 }
