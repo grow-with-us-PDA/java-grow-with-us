@@ -44,7 +44,7 @@ public class Buttons extends JPanel implements ActionListener {
         controller.mainPageController.clickNextDay();
         controller.farmController.updateNextDayCropStatus();
 
-        mainView.repaint();
+        controller.goToMainPage();
         return;
       }
 

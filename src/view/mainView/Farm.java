@@ -125,4 +125,6 @@ public class Farm extends JPanel {
     CropModel crop = controller.farmController.getFarm().get(1);
     System.out.println("클래스 확인: " + crop.getClass());
   }
+
+
 }
