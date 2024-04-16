@@ -1,14 +1,21 @@
 package controller;
 
-import model.StoreModel;
+import model.*;
 import view.View;
 
+import java.util.Date;
+
 public class Controller {
+
+    DateModel dateModel;
+    UserModel userModel;
+
+    FarmModel farmModel;
 
 
 //  public DetailController detailController;
 
-    public StoreController storeController = new StoreController(new StoreModel());
+    public StoreController storeController = new StoreController(new Store(dateModel, userModel, farmModel));
     public WeatherController weatherController;
     final View view;
 

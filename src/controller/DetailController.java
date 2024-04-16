@@ -2,7 +2,7 @@ package controller;
 
 import model.CropModel;
 import model.FarmModel;
-import view.DetailView.DetailView;
+//import view.DetailView.DetailView;
 
 public class DetailController {
 
