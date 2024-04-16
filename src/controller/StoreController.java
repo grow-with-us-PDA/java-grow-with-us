@@ -1,13 +1,13 @@
 package controller;
 
-import model.Store;
+import model.StoreModel;
 //import view.StoreView.StoreView;
 
 public class StoreController {
-    Store store;
+    StoreModel storeModel;
 
-    public StoreController(Store store){
-        this.store = store;
+    public StoreController(StoreModel storeModel){
+        this.storeModel = storeModel;
     }
 
     // 아래에 메서드 호출

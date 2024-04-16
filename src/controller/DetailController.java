@@ -58,9 +58,4 @@ public class DetailController {
       farmModel.sellCrop(location);
     }
 
-
-
-
-
-
 }

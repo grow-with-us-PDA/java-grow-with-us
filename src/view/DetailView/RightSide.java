@@ -10,18 +10,24 @@ import javax.swing.JPanel;
 public class RightSide extends JPanel {
 
   RightSide(Controller controller) {
+    PlantInfo plantInfo = new PlantInfo();
     PlantButtons plantButtons = new PlantButtons(controller);
     Buttons buttons = new Buttons();
-    PlantInfo plantInfo = new PlantInfo();
 
     setLayout(new BorderLayout());
     setPreferredSize(new Dimension(300, 700));
-    setBorder(BorderFactory.createEmptyBorder(10 , 10, 10 , 10));
+    setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-    setBackground(Color.RED);
-    add(plantInfo,BorderLayout.NORTH);
-    add(plantButtons);
+    // 각 컴포넌트에 동일한 간격의 EmptyBorder 설정
+    int padding = 10; // 원하는 간격 (예: 10 픽셀)
 
-    add(buttons);
+    plantInfo.setBorder(BorderFactory.createEmptyBorder(0, 0, padding, 0));
+    plantButtons.setBorder(BorderFactory.createEmptyBorder(padding, 0, padding, 0));
+    buttons.setBorder(BorderFactory.createEmptyBorder(padding, 0, 0, 0));
+
+    // 컴포넌트 추가
+    add(plantInfo, BorderLayout.NORTH);
+    add(buttons, BorderLayout.SOUTH);
+    add(plantButtons, BorderLayout.CENTER);
   }
 }

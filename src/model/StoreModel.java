@@ -5,13 +5,13 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Store {
+public class StoreModel {
     CropModel[] seed;
     DateModel dateModel;
     UserModel userModel;
     FarmModel farmModel;
 
-    public Store(DateModel dateModel, UserModel userModel, FarmModel farmModel){
+    public StoreModel(DateModel dateModel, UserModel userModel, FarmModel farmModel){
 
         this.userModel = userModel;
         this.dateModel = dateModel;
