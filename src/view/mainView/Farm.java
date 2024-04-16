@@ -68,7 +68,8 @@ public class Farm extends JPanel {
   private JPanel createEmptyField() {
     JPanel field = new JPanel();
     field.setBackground(Color.WHITE);
-    field.setBorder(new LineBorder(Color.BLACK, 3));
+    field.setBorder(new LineBorder(Color.BLACK, 1));
+
     return field;
   }
 

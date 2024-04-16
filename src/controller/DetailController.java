@@ -91,4 +91,6 @@ public class DetailController {
   public void sellCrop() {
     farmModel.sellCrop(location);
   }
+
+
 }
