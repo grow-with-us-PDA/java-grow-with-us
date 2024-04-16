@@ -40,6 +40,7 @@ public class DetailController {
         return cropModel.getName();
     }
 
+
     public int getHumidity() {
         return cropModel.getHumidity();
     }

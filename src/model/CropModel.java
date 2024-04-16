@@ -1,5 +1,7 @@
 package model;
 
+import controller.Controller;
+
 import java.time.Period;
 import java.util.Date;
 import java.util.Random;
@@ -29,7 +31,7 @@ public class CropModel {
     int fertilized = 100;
     boolean isFullyGrowed = false;
     int startDate;
-    int endDate = startDate + requiredDay;
+    int endDate;
     boolean isLive = true;
 
 
@@ -59,14 +61,17 @@ public class CropModel {
     // 수확까지 남은 날짜 조회
     public int getDateDiffInDays(){
         int day = dateModel.getDate();
+        endDate = startDate + requiredDay;
+
         return endDate-day;
+
     }
 
     // 수확 날짜 계산해 imglevel 선정 후 이미지 반환
     public String levelimg(){
+
         int leftday = getDateDiffInDays(); // 수확까지 남은 날짜
         int liveday = requiredDay - leftday; //살아온 날짜
-
         if(liveday/leftday < requiredDay/3)
             return img[0];
         else if (liveday/leftday < requiredDay/3*2)
@@ -81,6 +86,8 @@ public class CropModel {
 
     //물주기, 햇볕, CO2, 비료, 칭찬
     public void waterSupply(){
+        getDateDiffInDays();
+        System.out.println("시작날"+startDate);
         if(!todayDone[0]){
             humidity += STAT_INCREASE;
             todayDone[0] = true;
@@ -129,6 +136,16 @@ public class CropModel {
 
     //현재 상태, 가격 조회
     public boolean getisLive(){
+        if(humidity<0){
+            return false;
+        }
+        else if(sunshine<0){
+            return false;
+        }
+        else if(fertilized<0)
+            return false;
+        else if(co2<0)
+            return false;
         return isLive;
     }
     public int getHumidity() {
