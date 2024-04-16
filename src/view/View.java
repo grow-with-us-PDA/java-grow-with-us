@@ -11,6 +11,7 @@ import view.DetailView.DetailView;
 import controller.DetailController;
 
 public class View extends JFrame {
+
   Controller controller;
   private MainView mainView;
   private StoreView storeView;

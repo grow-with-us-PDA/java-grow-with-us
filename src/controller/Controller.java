@@ -1,23 +1,36 @@
 package controller;
 
 import model.DateModel;
+import model.FarmModel;
 import model.StoreModel;
-import model.WeatherModel;
+import model.UserModel;
 import view.View;
 
+import java.util.Date;
+
 public class Controller {
+
 //  public DetailController detailController;
 
+
     public StoreController storeController = new StoreController(new StoreModel());
-    public MainPageController mainPageController;
-    View view;
+    public WeatherController weatherController;
+    public FarmController farmController;
+
+    public UserModel userModel;
+    public DateModel dateModel;
+    public FarmModel farmModel;
+    final View view;
 
     public Controller() {
-      this.view = new View(this);
+        userModel = new UserModel();
+        dateModel = new DateModel();
+        farmModel = new FarmModel(userModel,dateModel);
 
-      WeatherModel weatherModel = new WeatherModel();
-      DateModel dateModel =  new DateModel();
-      this.mainPageController = new MainPageController(weatherModel, dateModel);
+        weatherController = new WeatherController();
+       // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
+        farmController = new FarmController(farmModel);
+        this.view = new View(this);
     }
 
     public void goToStorePage() {
@@ -27,8 +40,9 @@ public class Controller {
     public void goToMainPage() {
         view.showMainView();
     }
-
     public void goToDetailPage() {
         view.showDetailView();
     }
-  }
+
+}
+

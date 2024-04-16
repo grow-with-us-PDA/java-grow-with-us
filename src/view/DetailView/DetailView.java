@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+import model.CropModel;
+import model.FarmModel;
 import view.View;
 
 public class DetailView extends JPanel {
@@ -43,10 +45,10 @@ public class DetailView extends JPanel {
     goToMainButton.addActionListener(buttonActionListener);
     goToStoreButton.addActionListener(buttonActionListener);
 
-    JTextField tf_detail = new JTextField("디테일페이지입니다.");
-    add(tf_detail);
-    add(goToMainButton);
-    add(goToStoreButton);
+//    JTextField tf_detail = new JTextField("디테일페이지입니다.");
+//    add(tf_detail);
+//    add(goToMainButton);
+//    add(goToStoreButton);
     add(plant, BorderLayout.WEST);
     add(rightSide, BorderLayout.EAST);
   }
