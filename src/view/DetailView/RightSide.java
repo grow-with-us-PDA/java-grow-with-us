@@ -12,7 +12,7 @@ public class RightSide extends JPanel {
 
   RightSide(Controller controller, CropModel cropModel) {
     PlantInfo plantInfo = new PlantInfo(cropModel);
-    PlantButtons plantButtons = new PlantButtons(controller,cropModel);
+    PlantButtons plantButtons = new PlantButtons(controller,cropModel,plantInfo);
     Buttons buttons = new Buttons(controller,cropModel);
 
     setLayout(new BorderLayout());

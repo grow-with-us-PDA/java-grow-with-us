@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import model.CropModel;
 import model.FarmModel;
 import view.DetailView.DetailView;
@@ -18,7 +19,7 @@ public class DetailController {
     //new DetailView(this.controller);
   }
 
-  public void makeDetailView(CropModel cropModel) {
+  public void makeDetailView(CropModel cropModel) throws IOException {
 //    this.farmModel = farmModel;
 //    this.location = location;
 //    this.cropModel = this.farmModel.getCropByLocation(location);
