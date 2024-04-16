@@ -43,10 +43,10 @@ public class DetailView extends JPanel {
     goToMainButton.addActionListener(buttonActionListener);
     goToStoreButton.addActionListener(buttonActionListener);
 
-    JTextField tf_detail = new JTextField("디테일페이지입니다.");
-    add(tf_detail);
-    add(goToMainButton);
-    add(goToStoreButton);
+//    JTextField tf_detail = new JTextField("디테일페이지입니다.");
+//    add(tf_detail);
+//    add(goToMainButton);
+//    add(goToStoreButton);
     add(plant, BorderLayout.WEST);
     add(rightSide, BorderLayout.EAST);
   }
