@@ -17,9 +17,10 @@ import model.CropModel;
 public class Buttons extends JPanel implements ActionListener {
   String[] texts = new String[]{"팔기", "돌아가기"};
   JButton[] buttons = new JButton[texts.length];
+  CropModel cropModel;
 
   Buttons(Controller controller, CropModel cropModel) {
-
+this.cropModel=cropModel;
     setPreferredSize(new Dimension(300, 160));
 
     setLayout(new FlowLayout());
@@ -51,6 +52,10 @@ public class Buttons extends JPanel implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
+    if(e.getSource() == buttons[0]){
+      System.out.println("팔기팔기");
+      System.out.println(cropModel);
+    }
     for (int i = 0 ; i < texts.length ; i++) {
       if (e.getSource() == buttons[i]) {
         // 함수 실행. 작동까지 확인함.

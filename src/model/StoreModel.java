@@ -97,6 +97,33 @@ public class StoreModel {
 
     public boolean buyCropBySeedIndex(int seedIndex) { // 해당 crop 구매하기
         System.out.println("buy: " + seed[seedIndex]);
+        if(seedIndex ==0){
+            return farmModel.buyCropByStore(new Rice(this.dateModel));
+        }else if(seedIndex == 1){
+            return farmModel.buyCropByStore(new Basil(this.dateModel));
+
+        }else if(seedIndex == 2){
+            return farmModel.buyCropByStore(new Lettuce(this.dateModel));
+
+        }else if(seedIndex == 3){
+            return farmModel.buyCropByStore(new Corn(this.dateModel));
+
+        }else if(seedIndex == 4){
+            return farmModel.buyCropByStore(new Broccoli(this.dateModel));
+
+        }else if(seedIndex == 5){
+            return farmModel.buyCropByStore(new Apple(this.dateModel));
+
+        }else if(seedIndex == 6){
+            return farmModel.buyCropByStore(new Pear(this.dateModel));
+
+        }else if(seedIndex == 7){
+            return farmModel.buyCropByStore(new Tomato(this.dateModel));
+
+        }else if(seedIndex == 8){
+            return farmModel.buyCropByStore(new Strawberry(this.dateModel));
+
+        }
         return farmModel.buyCropByStore(seed[seedIndex]);
     }
 
