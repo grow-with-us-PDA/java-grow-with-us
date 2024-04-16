@@ -11,6 +11,8 @@ public class DetailController {
   private int location;
   Controller controller;
 
+  public DetailView detailView;
+
   public DetailController(Controller controller) {
     this.controller = controller;
     //new DetailView(this.controller);
@@ -21,7 +23,8 @@ public class DetailController {
     this.location = location;
     this.cropModel = this.farmModel.getCropByLocation(location);
     // num으로 객체 찾고
-    DetailView detailView = new DetailView(controller,cropModel);
+
+   this.detailView = new DetailView(controller,cropModel);
 
   }
 
