@@ -144,6 +144,10 @@ public class CropModel {
         return isFullyGrowed;
     }
 
+    public String[] getImg(){
+        return img;
+    }
+
 
     // 상태이상 요소 조회 (50보다 낮을시 false 반환)
     public boolean checkbadCrop(){
