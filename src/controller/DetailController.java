@@ -10,9 +10,12 @@ public class DetailController {
   FarmModel farmModel;
     private int location;
 
-    public DetailController(CropModel cropModel, FarmModel farmModel) {
-      this.cropModel = cropModel;
+    public DetailController(int location,FarmModel farmModel) {
+
+      this.location = location;
       this.farmModel = farmModel;
+      this.cropModel = this.farmModel.getCropByLocation(location);
+
 
 //    new DetailView(this);
   }
