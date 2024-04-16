@@ -49,8 +49,21 @@ public class FarmModel {
 
     public void buyCorn() { // corn 사기 -> 나중에 그냥 crop 사기로 바꾸기
         Corn corn = new Corn(this.dateModel);
-        this.userModel.setMoney(-corn.seedPrice);
-        setCropAutoAtFarm(corn);
+        boolean isSetMoney = this.userModel.setMoney(-corn.seedPrice);
+        if(isSetMoney){
+            setCropAutoAtFarm(corn);
+        }else{
+            System.out.println("돈 없어서 작물 심기 실패");
+        }
+    }
+
+    public void buyCropByStore(CropModel cropModel){
+        boolean isSetMoney = this.userModel.setMoney(-cropModel.seedPrice);
+        if(isSetMoney){
+            setCropAutoAtFarm(cropModel);
+        }else{
+            System.out.println("돈 없어서 작물 심기 실패");
+        }
     }
 
     public void sellCrop(int location) { // location에 있는 작물 팔기
