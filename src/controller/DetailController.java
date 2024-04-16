@@ -2,7 +2,7 @@ package controller;
 
 import model.CropModel;
 import model.FarmModel;
-import view.DetailView.DetailView;
+//import view.DetailView.DetailView;
 
 public class DetailController {
 
@@ -57,10 +57,5 @@ public class DetailController {
     public void sellCrop(){
       farmModel.sellCrop(location);
     }
-
-
-
-
-
 
 }

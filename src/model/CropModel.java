@@ -14,6 +14,7 @@ public class CropModel {
 
     int STAT_INCREASE = 10;
     int[] ALIVE_RANGE = {50,100};
+    int NEXT_DAY_STAT_DECREASE = 5; // 다음날 감소하는 status 양
 
     String name;
     int requiredDay;
@@ -182,8 +183,23 @@ public class CropModel {
         return true;
     }
 
+    // 다음날 될때 업데이트되는 값 humidity, sunshine, co2, fertilized
+    public void updateNextDayHumidity(){
+        this.humidity -= NEXT_DAY_STAT_DECREASE;
+    }
+    public void updateNextDaySunshine(){
+        this.sunshine -= NEXT_DAY_STAT_DECREASE;
+    }
+    public void updateNextDayCo2(){
+        this.co2 -= NEXT_DAY_STAT_DECREASE;
+    }
+    public void updateNextDayFertilized(){
+        this.fertilized -= NEXT_DAY_STAT_DECREASE;
+    }
+
 
 }
+
 
 
 //부모 클래스 : CropInfo
@@ -197,5 +213,4 @@ public class CropModel {
 //  7. apple (사과)
 //  8. pear(배)
 //  9. rice(쌀)
-
 

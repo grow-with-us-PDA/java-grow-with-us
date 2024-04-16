@@ -19,13 +19,14 @@ public class DetailView extends JPanel {
 
   final Controller controller;
   Plant plant = new Plant();
+  RightSide rightSide;
 
   public DetailView(Controller controller) {
     this.controller = controller;
 
     setLayout(new FlowLayout());
-    Plant plant = new Plant();
-    RightSide rightSide = new RightSide(controller);
+    this.plant = new Plant();
+    this.rightSide = new RightSide(controller);
 
     JButton goToMainButton = new JButton("메인페이지로");
     JButton goToStoreButton = new JButton("상점페이지로");
@@ -42,10 +43,10 @@ public class DetailView extends JPanel {
     goToMainButton.addActionListener(buttonActionListener);
     goToStoreButton.addActionListener(buttonActionListener);
 
-    JTextField tf_detail = new JTextField("디테일페이지입니다.");
-    add(tf_detail);
-    add(goToMainButton);
-    add(goToStoreButton);
+//    JTextField tf_detail = new JTextField("디테일페이지입니다.");
+//    add(tf_detail);
+//    add(goToMainButton);
+//    add(goToStoreButton);
     add(plant, BorderLayout.WEST);
     add(rightSide, BorderLayout.EAST);
   }
