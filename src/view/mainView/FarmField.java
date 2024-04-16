@@ -13,7 +13,6 @@ import java.awt.event.ActionListener;
 public class FarmField extends JPanel {
     Controller controller;
 
-
     public FarmField(Controller controller) {
         setBackground(Color.RED);
         setBorder(new LineBorder(Color.BLACK, 3));
@@ -24,3 +23,4 @@ public class FarmField extends JPanel {
     }
 
 }
+
