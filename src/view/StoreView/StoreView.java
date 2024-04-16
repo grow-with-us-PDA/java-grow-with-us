@@ -29,7 +29,7 @@ public class StoreView extends JPanel {
         add(seeds);
 
         // Bottom 패널 추가
-        bottomPanel = new Bottom(controller);
+        bottomPanel = new Bottom(controller, seeds);
         add(bottomPanel);
 
         // Bottom 패널에 메서드 호출을 위한 선택된 씨앗 정보 설정

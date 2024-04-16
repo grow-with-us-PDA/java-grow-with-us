@@ -5,7 +5,7 @@ public class UserModel {
     public int money;
 
     public UserModel() { // user 초기화
-        this.money = 500;
+        this.money = 1500;
         System.out.println("user가 초기화 됐습니다.");
         System.out.println("현재 보유금액은 " + this.money + "원입니다.");
 

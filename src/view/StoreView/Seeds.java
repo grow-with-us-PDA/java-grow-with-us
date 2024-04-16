@@ -63,7 +63,7 @@ public class Seeds extends JPanel {
             Component[] components = getComponents();
             for (int i = 0; i < components.length; i++) {
                 if (components[i] == selectedSeedPanel) {
-                    return i + 1; // 패널의 인덱스는 1부터 시작하므로 +1
+                    return i; // 패널의 인덱스는 1부터 시작하므로 +1
                 }
             }
             return -1; // 선택된 씨앗이 없는 경우 -1 반환

@@ -28,4 +28,8 @@ public class StoreController {
     public void test(int selectedSeedIndex){
         System.out.println("test" + selectedSeedIndex);
     }
+
+    public boolean buyCropBySeedIndex(int seedIndex){
+        return this.storeModel.buyCropBySeedIndex(seedIndex);
+    }
 }

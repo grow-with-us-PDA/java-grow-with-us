@@ -57,12 +57,14 @@ public class FarmModel {
         }
     }
 
-    public void buyCropByStore(CropModel cropModel){
+    public boolean buyCropByStore(CropModel cropModel){
         boolean isSetMoney = this.userModel.setMoney(-cropModel.seedPrice);
         if(isSetMoney){
             setCropAutoAtFarm(cropModel);
+            return true;
         }else{
             System.out.println("돈 없어서 작물 심기 실패");
+            return false;
         }
     }
 
