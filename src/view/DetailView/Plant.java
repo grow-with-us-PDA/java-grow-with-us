@@ -11,7 +11,7 @@ import javax.swing.*;
 import model.CropModel;
 
 public class Plant extends JPanel {
-  JLabel la_plantName = new JLabel("바질");
+  JLabel la_plantName = new JLabel("");
 
   JLabel la_plantImage;
   ImageIcon img_icon;

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
@@ -26,19 +27,42 @@ public class PlantButtons extends JPanel implements ActionListener {
     this.plantInfo=plantInfo;
     setPreferredSize(new Dimension(30, 10));
     setLayout(new FlowLayout());
-
-
     for (int i = 0 ; i < texts.length ; i++) {
       buttons[i] = new JButton(texts[i]);
 
 
       buttons[i].setPreferredSize(new Dimension(283, 55));
       buttons[i].setFont(new Font("돋음", Font.PLAIN, 16));
-      buttons[i].addActionListener(this);
 
+      if(i==0){
+        if(!cropModel.checkWater()){
+          buttons[i].setForeground(Color.RED);
+        }
+      }
+      else if(i==1){
+        if(!cropModel.checkSunshine()){
+          buttons[i].setForeground(Color.RED);
+        }
+
+      }
+      else if(i==2){
+        if(!cropModel.checkCO2()){
+          buttons[i].setForeground(Color.RED);
+        }
+
+      }
+      else if(i==3){
+        if(!cropModel.checkFertilized()){
+          buttons[i].setForeground(Color.RED);
+        }
+
+      }
+
+      buttons[i].addActionListener(this);
       add(buttons[i]);
     }
   }
+
 
   @Override
   public void actionPerformed(ActionEvent e) {
@@ -63,7 +87,13 @@ public class PlantButtons extends JPanel implements ActionListener {
         }
 
         plantInfo.repaint();
+        this.repaint();
+
       }
     }
   }
+
+
+
+
 }
