@@ -28,7 +28,7 @@ public class Controller {
 
     public Controller() {
         WeatherModel weatherModel = new WeatherModel();
-        UserModel userModel = new UserModel();
+        UserModel userModel = new UserModel("");
         DateModel dateModel = new DateModel();
         FarmModel farmModel = new FarmModel(userModel,dateModel, this);
         StoreModel storeModel = new StoreModel(dateModel, userModel,farmModel, this);
