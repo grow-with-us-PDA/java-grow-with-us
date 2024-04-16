@@ -16,7 +16,6 @@ public class Buttons extends JPanel implements ActionListener {
   JButton[] buttons = new JButton[texts.length];
 
   Buttons() {
-
     setPreferredSize(new Dimension(300, 107));
     setLayout(new FlowLayout());
 

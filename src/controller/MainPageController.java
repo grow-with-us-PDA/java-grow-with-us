@@ -7,9 +7,9 @@ public class MainPageController {
   WeatherModel weatherModel;
   DateModel dateModel;
 
-  public MainPageController() {
-    weatherModel = new WeatherModel();
-    dateModel = new DateModel();
+  public MainPageController(WeatherModel weatherModel, DateModel dateModel) {
+    this.weatherModel = weatherModel;
+    this.dateModel = dateModel;
   }
 
   public void clickNextDay() {
