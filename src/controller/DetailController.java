@@ -31,7 +31,6 @@ public class DetailController {
     }
 
 
-
     // 상태조회 (이미지,이름, 습도, 햇볕, 토양, 현재 가격)
     public String getLevelImg() {
         return cropModel.levelimg();

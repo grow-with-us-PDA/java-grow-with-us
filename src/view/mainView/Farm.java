@@ -23,17 +23,22 @@ public class Farm extends JPanel {
     this.controller = controller;
     setLayout(new GridLayout(3, 3));
     setPreferredSize(new Dimension(800, 700));
+
+    for(int i=0; i<controller.farmController.getFarm().size(); i++){
+      controller.farmController.dieCrop(i);  //죽었는지 확인
+    }
     setFarmField();
+
   }
 
   private void setFarmField() {
+
     HashMap<Integer, CropModel> cropMap = controller.farmController.getFarm();
 
     for (Map.Entry<Integer, CropModel> crop : cropMap.entrySet()) {
       Integer cropLocation = crop.getKey();
       CropModel cropInfo = crop.getValue();
 
-//      controller.farmController.dieCrop(cropLocation);  //죽었는지 확인
 
       JPanel field = createField(cropInfo, cropLocation);
       farmField[cropLocation] = field;
@@ -45,6 +50,8 @@ public class Farm extends JPanel {
       farmField[i] = field;
       add(field);
     }
+
+
   }
 
   private JPanel createField(CropModel cropInfo, int location) {
