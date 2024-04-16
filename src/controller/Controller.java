@@ -22,9 +22,6 @@ public class Controller {
         FarmModel farmModel = new FarmModel(userModel,dateModel);
         StoreModel storeModel = new StoreModel(dateModel, userModel,farmModel);
 
-
-        this.mainPageController = new MainPageController(weatherModel, dateModel);
-
         farmController = new FarmController(farmModel);
         mainPageController = new MainPageController(weatherModel,dateModel);
        // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
