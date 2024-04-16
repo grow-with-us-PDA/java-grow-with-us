@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 
 import controller.Controller;
 import controller.StoreController;
+import model.Corn;
+import model.CropModel;
 import view.StoreView.StoreView;
 import view.mainView.MainView;
 import view.DetailView.DetailView;
@@ -22,7 +24,7 @@ public class View extends JFrame {
 
     this.mainView = new MainView(controller);
     this.storeView = new StoreView(controller);
-    this.detailView = new DetailView(controller);
+    //this.detailView = new DetailView(controller);
 
     setSize(1133, 744);
 //    setResizable(false);
@@ -30,6 +32,7 @@ public class View extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     add(mainView);
+    //add(detailView);
   }
   // 메서드 사용법
   //    controller.storeController.plus();
@@ -46,11 +49,11 @@ public class View extends JFrame {
     revalidate(); // 레이아웃 갱신
     repaint(); // 다시 그리기
   }
-  public void showDetailView() {
-    getContentPane().removeAll(); // 현재 컨텐츠를 제거
-    add(detailView); // 스토어 뷰 추가
-    revalidate(); // 레이아웃 갱신
-    repaint(); // 다시 그리기
-  }
+//  public void showDetailView() {
+//    getContentPane().removeAll(); // 현재 컨텐츠를 제거
+//    add(detailView); // 스토어 뷰 추가
+//    revalidate(); // 레이아웃 갱신
+//    repaint(); // 다시 그리기
+//  }
 
 }

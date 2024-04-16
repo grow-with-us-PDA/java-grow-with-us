@@ -11,10 +11,6 @@ import model.*;
 
 import view.View;
 public class Controller {
-
-    public DetailController detailController;
-
-    //  public DetailController detailController;
     DateModel dateModel = new DateModel();
     UserModel userModel = new UserModel();
     FarmModel farmModel = new FarmModel(userModel,dateModel);
@@ -22,6 +18,9 @@ public class Controller {
 
     public MainPageController mainPageController;
     public FarmController farmController;
+
+    public DetailController detailController;
+
     View view;
     public Controller() {
         WeatherModel weatherModel = new WeatherModel();
@@ -32,10 +31,9 @@ public class Controller {
 
         this.mainPageController = new MainPageController(weatherModel, dateModel);
         this.farmController = new FarmController(farmModel);
-
+        this.detailController=new DetailController(this);
         this.view = new View(this);
 
-//      Corn corn = new Corn(dateModel);
       this.mainPageController = new MainPageController(weatherModel, dateModel);
     }
     public void goToStorePage() {
@@ -45,6 +43,6 @@ public class Controller {
         view.showMainView();
     }
     public void goToDetailPage() {
-        view.showDetailView();
+        //view.showDetailView();
     }
 }
