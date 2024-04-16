@@ -7,7 +7,9 @@ public class Controller {
     DateModel dateModel = new DateModel();
     UserModel userModel = new UserModel();
     FarmModel farmModel = new FarmModel(userModel,dateModel);
-    public StoreController storeController = new StoreController(new StoreModel(dateModel, userModel, farmModel));
+    StoreModel storeModel = new StoreModel(dateModel, userModel, farmModel);
+    public StoreController storeController;
+//    public StoreController storeController = new StoreController(new StoreModel(dateModel, userModel, farmModel));
     public MainPageController mainPageController;
     public FarmController farmController;
     View view;
@@ -16,10 +18,12 @@ public class Controller {
         DateModel dateModel = new DateModel();
         UserModel userModel = new UserModel();
         FarmModel farmModel = new FarmModel(userModel, dateModel);
+        StoreModel storeModel = new StoreModel(dateModel, userModel, farmModel);
 
 
         this.mainPageController = new MainPageController(weatherModel, dateModel);
         this.farmController = new FarmController(farmModel);
+        this.storeController = new StoreController(storeModel);
 
         this.view = new View(this);
 
