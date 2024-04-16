@@ -14,7 +14,7 @@ public class View extends JFrame {
   Controller controller;
   private MainView mainView;
   private StoreView storeView;
- private DetailView detailView;
+  private DetailView detailView;
   public View(Controller controller) {
     // 메인 컨트롤러
     this.controller = controller;
@@ -29,8 +29,7 @@ public class View extends JFrame {
     setVisible(true);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-    add(detailView);
+    add(mainView);
   }
   // 메서드 사용법
   //    controller.storeController.plus();

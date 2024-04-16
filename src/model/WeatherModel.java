@@ -2,7 +2,7 @@ package model;
 
 import java.util.Random;
 
-public class Weather {
+public class WeatherModel {
   Random random = new Random();
   String[] weathers = new String[]{
       "청명함", "대체로 청명함", "한때 흐림", "실안개", "안개",
@@ -14,7 +14,7 @@ public class Weather {
   String todayWeather;
   String tomorrowWeather;
 
-  public Weather() {
+  public WeatherModel() {
     todayWeather = getRandomWeather();
     tomorrowWeather = getRandomWeather();
   }

@@ -1,21 +1,23 @@
 package controller;
 
+import model.DateModel;
 import model.StoreModel;
+import model.WeatherModel;
 import view.View;
 
 public class Controller {
-
-
 //  public DetailController detailController;
 
     public StoreController storeController = new StoreController(new StoreModel());
-    public WeatherController weatherController;
-    final View view;
+    public MainPageController mainPageController;
+    View view;
 
     public Controller() {
-        this.view = new View(this);
-        weatherController = new WeatherController();
-       // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
+      this.view = new View(this);
+
+      WeatherModel weatherModel = new WeatherModel();
+      DateModel dateModel =  new DateModel();
+      this.mainPageController = new MainPageController(weatherModel, dateModel);
     }
 
     public void goToStorePage() {
@@ -25,8 +27,8 @@ public class Controller {
     public void goToMainPage() {
         view.showMainView();
     }
+
     public void goToDetailPage() {
         view.showDetailView();
     }
-
-}
+  }
