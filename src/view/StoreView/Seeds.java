@@ -17,10 +17,11 @@ public class Seeds extends JPanel {
     private JPanel selectedSeedPanel;
     private Controller controller;
     private StoreModel.CropDetails[] seedArray;
-
-    Seeds(Controller controller, StoreModel.CropDetails[] seedArray) {
+    private int money;
+    Seeds(Controller controller, StoreModel.CropDetails[] seedArray, int money) {
         this.controller = controller;
         this.seedArray = seedArray;
+        this.money = money;
         setLayout(new GridLayout(2, 5, 10, 10)); // 2행 5열의 그리드 레이아웃으로 설정
         setPreferredSize(new Dimension(1000, 400)); // 적절한 크기 설정
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // 여백 설정
@@ -54,8 +55,9 @@ public class Seeds extends JPanel {
         });
 
         try {
+            System.out.println(seedArray[index - 1].money);
             // money가 true일 경우 이미지를 보여줌
-            if (seedArray[index - 1].money) {
+            if (money >= seedArray[index - 1].seedPrice) {
                 URL imageURL = new URL(seedArray[index - 1].image);
                 BufferedImage originalImage = ImageIO.read(imageURL); // 원본 이미지를 읽어옴
                 Image scaledImage = originalImage.getScaledInstance(170, 140, Image.SCALE_SMOOTH); // 이미지 크기 조절
@@ -64,7 +66,7 @@ public class Seeds extends JPanel {
                 horizontalPanel.add(imageLabel); // 이미지 라벨을 수평 패널에 추가
             } else {
                 // money가 false인 경우 lock 이미지를 보여줌
-                ImageIcon lockIcon = new ImageIcon(getClass().getResource("/assets/store/lock.png"));
+                ImageIcon lockIcon = new ImageIcon("src/assets/store/lock.png");
                 Image lockImage = lockIcon.getImage(); // ImageIcon에서 Image 추출
                 Image scaledLockImage = lockImage.getScaledInstance(170, 140, Image.SCALE_SMOOTH); // 이미지 크기 조절
                 ImageIcon scaledLockIcon = new ImageIcon(scaledLockImage);
