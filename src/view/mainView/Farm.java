@@ -31,17 +31,21 @@ public class Farm extends JPanel {
   private void setFarmField() {
     HashMap<Integer, CropModel> cropMap = controller.farmController.getFarm();
 
+    for (int i = 0; i < 9; i++) {
+      JPanel field = createEmptyField();
+      farmField[i] = field;
+//      add(field);
+    }
+
     for (Map.Entry<Integer, CropModel> crop : cropMap.entrySet()) {
       Integer cropLocation = crop.getKey();
       CropModel cropInfo = crop.getValue();
       JPanel field = createField(cropInfo, cropLocation);
       farmField[cropLocation] = field;
-      add(field);
+//      add(field);
     }
 
-    for (int i = cropMap.size(); i < 9; i++) {
-      JPanel field = createEmptyField();
-      farmField[i] = field;
+    for (JPanel field: farmField) {
       add(field);
     }
   }
