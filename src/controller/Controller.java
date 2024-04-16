@@ -19,7 +19,7 @@ import java.util.Date;
 public class Controller {
 
     public DetailController detailController;
-
+    public LoginController loginController;
     public StoreController storeController;
     public FarmController farmController;
     public MainPageController mainPageController;
@@ -28,7 +28,7 @@ public class Controller {
 
     public Controller() {
         WeatherModel weatherModel = new WeatherModel();
-        UserModel userModel = new UserModel("");
+        UserModel userModel = new UserModel();
         DateModel dateModel = new DateModel();
         FarmModel farmModel = new FarmModel(userModel,dateModel, this);
         StoreModel storeModel = new StoreModel(dateModel, userModel,farmModel, this);
@@ -38,9 +38,13 @@ public class Controller {
         farmController = new FarmController(farmModel);
         mainPageController = new MainPageController(weatherModel,dateModel);
         storeController = new StoreController(storeModel);
+        loginController = new LoginController(userModel);
         this.view = new View(this);
 
+
     }
+
+
 
     public void goToStorePage() {
         view.showStoreView();
