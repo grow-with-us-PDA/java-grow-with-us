@@ -92,6 +92,13 @@ public class FarmModel {
         this.userModel.setMoney(crop.sellPrice);
     }
 
+    public void dieCrop(int location){
+        CropModel crop = farm.get(location);
+        if(!crop.getisLive()){
+            removeCropAtFarm(location);
+        }
+    }
+
     public CropModel getCropByLocation(int location) { // 해당 location의 crop 가져오기
         return this.farm.get(location);
     }

@@ -29,6 +29,8 @@ public class FarmController {
         farmModel.sellCrop(location);
     }
 
+    public void dieCrop(int location){farmModel.dieCrop(location);}
+
     public CropModel getCropByLocation(int location){
         return farmModel.getCropByLocation(location);
     }
