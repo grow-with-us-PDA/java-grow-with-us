@@ -3,16 +3,20 @@ package view.DetailView;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import model.CropModel;
 
 public class Plant extends JPanel {
-  JLabel la_plantName = new JLabel("바질");
-  ImageIcon img_icon = new ImageIcon("src/assets/plants/새싹.jpeg");
+  JLabel la_plantName = new JLabel("");
+
   JLabel la_plantImage;
+  ImageIcon img_icon;
 
-
-  Plant(CropModel cropModel) {
+  Plant(CropModel cropModel) throws IOException {
     // 패널 설정
     setPreferredSize(new Dimension(800, 600));
     setLayout(null);
@@ -21,7 +25,12 @@ public class Plant extends JPanel {
     la_plantName.setFont(new Font("", Font.BOLD, 42));
     la_plantName.setText(cropModel.getName());
 
-    System.out.println(cropModel.getImg());
+    System.out.println(cropModel.levelimg());
+
+    URL imageURL = new URL(cropModel.levelimg());
+    Image image = ImageIO.read(imageURL);
+    ImageIcon img_icon = new ImageIcon(image);
+    this.img_icon=img_icon;
 
     // la_plantName과 la_plantImage를 패널에 추가
     add(la_plantName);
