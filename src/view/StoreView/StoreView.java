@@ -23,7 +23,8 @@ public class StoreView extends JPanel {
         add(la_title);
 
         // 금액을 담을 Money 패널 추가
-        moneyPanel = new Money(1000);
+        int money = this.controller.storeController.getMoney(); // controller에서 money 가져오기
+        moneyPanel = new Money(money);
         add(moneyPanel);
 
         // 씨앗 목록 추가
@@ -33,6 +34,9 @@ public class StoreView extends JPanel {
         // Bottom 패널 추가
         bottomPanel = new Bottom(controller, seeds);
         add(bottomPanel);
+
+        // Bottom 패널에 메서드 호출을 위한 선택된 씨앗 정보 설정
+//        bottomPanel.setSelectedSeedIndex(seeds.getSelectedSeedIndex());
     }
 
     public void setMoney(int money) {

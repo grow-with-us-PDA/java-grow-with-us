@@ -51,7 +51,7 @@ public class StoreModel {
             CropDetails cropDetails = new CropDetails();
             cropDetails.name = crop.name;
             cropDetails.seedPrice = crop.seedPrice;
-            cropDetails.image = crop.img[0];
+            cropDetails.image = crop.img[2];
             if (crop.seedPrice > userMoney) {
                 cropDetails.money = false;
             } else {
@@ -75,8 +75,8 @@ public class StoreModel {
     // 현재 내가 가지고 있는 작물 이름과 갯수
 
     public Map<String, Integer> calculateFarmNameAndCount() {
-        farmModel.buyCorn();
-        farmModel.buyCorn();
+//        farmModel.buyCorn();
+//        farmModel.buyCorn();
         HashMap<Integer, CropModel> farm = getFarm();
         Map<String, Integer> nameAndCountMap = new HashMap<>();
         // Farm에 있는 각 CropModel을 순회하며 이름과 갯수를 계산합니다.
@@ -95,9 +95,32 @@ public class StoreModel {
         farmModel.buyCropByStore(cropModel);
     }
 
-    public void buyCropBySeedIndex(int seedIndex) { // 해당 crop 구매하기
+    public boolean buyCropBySeedIndex(int seedIndex) { // 해당 crop 구매하기
         System.out.println("buy: " + seed[seedIndex]);
-        farmModel.buyCropByStore(seed[seedIndex]);
+        return farmModel.buyCropByStore(seed[seedIndex]);
+    }
+
+    public UserModel getUserModelByStoreModel(){
+        return this.userModel;
+    }
+
+    public String getFarmNameAndCount(){ // 밭 현황 string 변환해서 반환
+        Map<String, Integer> farmNameAndCountMap = calculateFarmNameAndCount();
+        StringBuilder result = new StringBuilder();
+
+        if (farmNameAndCountMap.isEmpty()) {
+            return "없음";
+        }
+
+        for (Map.Entry<String, Integer> entry : farmNameAndCountMap.entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+            result.append(key).append(": ").append(value).append("개, ");
+        }
+
+        result.delete(result.length() - 2, result.length());
+
+        return result.toString();
     }
 
 
