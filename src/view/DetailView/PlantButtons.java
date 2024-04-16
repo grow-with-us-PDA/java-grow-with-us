@@ -9,14 +9,17 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import controller.Controller;
+import javax.swing.border.EmptyBorder;
 
 public class PlantButtons extends JPanel implements ActionListener {
-  String[] texts = new String[]{"다음 날", "상점"};
+  String[] texts = new String[]{"물 주기(습도)", "햇볕 쬐기(햇볕)", "CO2 공급", "비료 주기(토양)", "칭찬하기"};
   JButton[] buttons = new JButton[texts.length];
 
-  PlantButtons() {
+  PlantButtons(Controller controller) {
+
     setBackground(Color.YELLOW);
-    setPreferredSize(new Dimension(300, 107));
+    setPreferredSize(new Dimension(30, 10));
     setLayout(new FlowLayout());
 
     for (int i = 0 ; i < texts.length ; i++) {
