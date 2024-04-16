@@ -7,11 +7,13 @@ public class Store {
     CropModel[] seed;
     DateModel dateModel;
     UserModel userModel;
+    FarmModel farmModel;
 
-    public Store(DateModel dateModel, UserModel userModel){
+    public Store(DateModel dateModel, UserModel userModel, FarmModel farmModel) {
 
         this.userModel = userModel;
         this.dateModel = dateModel;
+        this.farmModel = farmModel;
 
         seed = new CropModel[]{
                 new Corn(dateModel),
@@ -30,5 +32,17 @@ public class Store {
     }
 
     // 유저 보유자산 조회
-    public int getMoney(){return userModel.getMoney();}
+    public int getMoney() {
+        return userModel.getMoney();
+    }
+
+    public CropModel[] getCrops() {
+        System.out.println(seed);
+        return seed;
+    }
+
+    public void buyCrop(CropModel cropModel) { // 해당 crop 구매하기
+        System.out.println("buy: " + cropModel);
+        farmModel.buyCropByStore(cropModel);
+    }
 }

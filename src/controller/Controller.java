@@ -9,11 +9,12 @@ public class Controller {
 
     DateModel dateModel;
     UserModel userModel;
+    FarmModel farmModel;
 
 
 //  public DetailController detailController;
 
-    public StoreController storeController = new StoreController(new Store(dateModel, userModel));
+    public StoreController storeController = new StoreController(new Store(dateModel, userModel, farmModel));
     public WeatherController weatherController;
     final View view;
 

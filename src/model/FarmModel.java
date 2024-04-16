@@ -53,6 +53,11 @@ public class FarmModel {
         setCropAutoAtFarm(corn);
     }
 
+    public void buyCropByStore(CropModel cropModel){
+        this.userModel.setMoney(-cropModel.seedPrice);
+        setCropAutoAtFarm(cropModel);
+    }
+
     public void sellCrop(int location) { // location에 있는 작물 팔기
         CropModel crop = farm.get(location);
         removeCropAtFarm(location);
