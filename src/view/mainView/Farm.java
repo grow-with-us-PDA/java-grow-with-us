@@ -20,7 +20,7 @@ public class Farm extends JPanel {
 
   public Farm(Controller controller) {
     this.controller = controller;
-    setBackground(Color.blue);
+//    setBackground(Color.blue);
     setLayout(new GridLayout(3, 3));
     setPreferredSize(new Dimension(800, 700));
     setCropAtField();
@@ -33,7 +33,7 @@ public class Farm extends JPanel {
     for (Map.Entry<Integer, CropModel> crop : cropMap.entrySet()) {
       Integer cropLocation = crop.getKey();
       CropModel cropInfo = crop.getValue();
-      JPanel field = createField(cropInfo);
+      JPanel field = createField(cropInfo, cropLocation);
       farmField[cropLocation] = field;
       add(field);
     }
@@ -45,20 +45,22 @@ public class Farm extends JPanel {
     }
   }
 
-  private JPanel createField(CropModel cropInfo) {
+  private JPanel createField(CropModel cropInfo, int location) {
     JPanel field = new JPanel();
     field.setBackground(Color.WHITE);
-    field.setBorder(new LineBorder(Color.BLACK, 3));
+    field.setBorder(new LineBorder(Color.BLACK, 1));
     JLabel imageLabel = new JLabel();
+
     try {
       URL imageURL = new URL(cropInfo.levelimg());
       Image image = ImageIO.read(imageURL);
       ImageIcon icon = new ImageIcon(image);
       imageLabel.setIcon(icon);
-      field.addMouseListener(createMouseListener());
+      field.addMouseListener(createMouseListener(location));
     } catch (IOException e) {
       e.printStackTrace();
     }
+
     field.add(imageLabel);
     return field;
   }
@@ -70,12 +72,13 @@ public class Farm extends JPanel {
     return field;
   }
 
-  private MouseAdapter createMouseListener() {
+  private MouseAdapter createMouseListener(int location) {
     return new MouseAdapter() {
       @Override
       public void mouseClicked(MouseEvent e) {
         super.mouseClicked(e);
         controller.goToDetailPage();
+        System.out.println(location);
       }
     };
   }
