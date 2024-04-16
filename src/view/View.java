@@ -3,20 +3,17 @@ package view;
 import controller.Controller;
 import javax.swing.JFrame;
 
-import controller.Controller;
-import controller.StoreController;
-import model.Corn;
-import model.CropModel;
+import view.LoginView.LoginView;
 import view.StoreView.StoreView;
 import view.mainView.MainView;
 import view.DetailView.DetailView;
-import controller.DetailController;
 
 public class View extends JFrame {
 
   Controller controller;
   private MainView mainView;
   private StoreView storeView;
+  private LoginView loginView;
   private DetailView detailView;
 
   public View(Controller controller) {
@@ -26,6 +23,7 @@ public class View extends JFrame {
 
     this.mainView = new MainView(controller);
     this.storeView = new StoreView(controller);
+    this.loginView = new LoginView(controller);
     //this.detailView = new DetailView(controller);
 
     setSize(1133, 744);
@@ -33,11 +31,18 @@ public class View extends JFrame {
     setVisible(true);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    add(mainView);
+    add(loginView);
     //add(detailView);
   }
   // 메서드 사용법
   //    controller.storeController.plus();
+  public void showLoginView() {
+    this.loginView = new LoginView(controller);
+    getContentPane().removeAll(); // 현재 컨텐츠를 제거
+    revalidate(); // 레이아웃 갱신
+    repaint(); // 다시 그리기
+  }
+
   public void showMainView() {
     this.mainView = new MainView(controller);
 

@@ -35,7 +35,7 @@ public class FarmController {
         return farmModel.getCropByLocation(location);
     }
 
-    public void updateNextDayCropStatus(){
+    public void updateNextDayCropStatus(Controller controller){
         farmModel.updateNextDayCropStatus();
     }
 
