@@ -94,5 +94,10 @@ public class StoreModel {
         farmModel.buyCropByStore(cropModel);
     }
 
+    public void buyCropBySeedIndex(int seedIndex) { // 해당 crop 구매하기
+        System.out.println("buy: " + seed[seedIndex]);
+        farmModel.buyCropByStore(seed[seedIndex]);
+    }
+
 
 }
