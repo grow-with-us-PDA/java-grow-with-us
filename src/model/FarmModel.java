@@ -2,6 +2,7 @@ package model;
 
 import controller.Controller;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -94,6 +95,9 @@ public class FarmModel {
 
     public void dieCrop(int location) {
         CropModel crop = farm.get(location);
+        if(crop ==null){
+            return;
+        }
         if (!crop.getisLive()) {
             removeCropAtFarm(location);
         }
