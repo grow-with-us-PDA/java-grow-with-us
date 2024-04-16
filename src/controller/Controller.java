@@ -1,40 +1,44 @@
 package controller;
 
+import com.sun.tools.javac.Main;
 import model.*;
 import view.View;
+
+import java.util.Date;
+
 public class Controller {
-    //  public DetailController detailController;
-    DateModel dateModel = new DateModel();
-    UserModel userModel = new UserModel();
-    FarmModel farmModel = new FarmModel(userModel,dateModel);
-    StoreModel storeModel = new StoreModel(dateModel, userModel, farmModel);
+
+//  public DetailController detailController;
+
     public StoreController storeController;
-//    public StoreController storeController = new StoreController(new StoreModel(dateModel, userModel, farmModel));
-    public MainPageController mainPageController;
     public FarmController farmController;
-    View view;
+    public MainPageController mainPageController;
+    final View view;
+
     public Controller() {
         WeatherModel weatherModel = new WeatherModel();
-        DateModel dateModel = new DateModel();
         UserModel userModel = new UserModel();
-        FarmModel farmModel = new FarmModel(userModel, dateModel);
-        StoreModel storeModel = new StoreModel(dateModel, userModel, farmModel);
+        DateModel dateModel = new DateModel();
+        FarmModel farmModel = new FarmModel(userModel,dateModel);
+        StoreModel storeModel = new StoreModel(dateModel, userModel,farmModel);
 
-
-        this.mainPageController = new MainPageController(weatherModel, dateModel);
-        this.farmController = new FarmController(farmModel);
-        this.storeController = new StoreController(storeModel);
+        farmController = new FarmController(farmModel);
+        mainPageController = new MainPageController(weatherModel,dateModel);
+        // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
+        storeController = new StoreController(storeModel);
 
         this.view = new View(this);
-
     }
+
     public void goToStorePage() {
         view.showStoreView();
     }
+
     public void goToMainPage() {
         view.showMainView();
     }
     public void goToDetailPage() {
         view.showDetailView();
     }
+
 }
