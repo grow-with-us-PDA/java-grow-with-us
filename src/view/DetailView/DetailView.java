@@ -20,6 +20,7 @@ import view.View;
 public class DetailView extends JPanel {
 
   final Controller controller;
+  DetailController detailController;
   Plant plant = new Plant();
   RightSide rightSide;
 
