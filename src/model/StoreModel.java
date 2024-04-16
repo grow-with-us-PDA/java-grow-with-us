@@ -100,5 +100,9 @@ public class StoreModel {
         farmModel.buyCropByStore(seed[seedIndex]);
     }
 
+    public UserModel getUserModelByStoreModel(){
+        return this.userModel;
+    }
+
 
 }
