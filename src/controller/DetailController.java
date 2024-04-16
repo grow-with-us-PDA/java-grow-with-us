@@ -31,12 +31,6 @@ public class DetailController {
     }
 
 
-<<<<<<< HEAD
-  // 상태조회 (이미지,이름, 습도, 햇볕, 토양, 현재 가격)
-  public String getLevelImg() {
-    return cropModel.levelimg();
-  }
-=======
     // 상태조회 (이미지,이름, 습도, 햇볕, 토양, 현재 가격)
     public String getLevelImg() {
         return cropModel.levelimg();
@@ -45,7 +39,7 @@ public class DetailController {
     public String getName() {
         return cropModel.getName();
     }
->>>>>>> 2c3965fd131e7b80bf97a464223f63e150147aa2
+
 
     public int getHumidity() {
         return cropModel.getHumidity();
