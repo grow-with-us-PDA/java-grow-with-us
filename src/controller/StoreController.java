@@ -18,4 +18,8 @@ public class StoreController {
     public int getMoney(){ // userModel의 money 받아오기
         return this.storeModel.getUserModelByStoreModel().getMoney();
     }
+
+    public String getFarmCurrentStatus(){
+        return "";
+    }
 }
