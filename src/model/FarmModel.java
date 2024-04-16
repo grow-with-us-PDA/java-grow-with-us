@@ -2,6 +2,7 @@ package model;
 
 import controller.Controller;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
