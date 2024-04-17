@@ -13,22 +13,22 @@ import javax.swing.JPanel;
 public class Buttons extends JPanel implements ActionListener {
 
   Controller controller;
-  DayAndWeathers dayAndWeathers;
+  MainView mainView;
+
   String[] texts = new String[]{"다음 날", "상점"};
   JButton[] buttons = new JButton[texts.length];
 
-  Buttons(Controller controller, DayAndWeathers dayAndWeathers) {
+  Buttons(Controller controller, MainView mainView) {
     this.controller = controller;
-    this.dayAndWeathers = dayAndWeathers;
+    this.mainView = mainView;
 
-    setBackground(Color.YELLOW);
     setPreferredSize(new Dimension(300, 107));
     setLayout(new FlowLayout());
 
     for (int i = 0 ; i < texts.length ; i++) {
       buttons[i] = new JButton(texts[i]);
 
-      buttons[i].setPreferredSize(new Dimension(300, 50));
+      buttons[i].setPreferredSize(new Dimension(280, 50));
       buttons[i].setFont(new Font("돋음", Font.PLAIN, 16));
       buttons[i].addActionListener(this);
 
@@ -41,14 +41,16 @@ public class Buttons extends JPanel implements ActionListener {
     for (int i = 0 ; i < texts.length ; i++) {
       // 다음날
       if (e.getSource() == buttons[0]) {
-        controller.weatherController.updateWeathers();
-        dayAndWeathers.repaint();
+        controller.mainPageController.clickNextDay();
+        controller.farmController.updateNextDayCropStatus(controller);
+
+        controller.goToMainPage();
         return;
       }
 
       // 상점
       if (e.getSource() == buttons[1]) {
-        //
+        controller.goToStorePage();
         return;
       }
     }

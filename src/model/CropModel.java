@@ -1,7 +1,10 @@
 package model;
 
+import controller.Controller;
+
 import java.time.Period;
 import java.util.Date;
+import java.util.Random;
 
 public class CropModel {
 
@@ -22,13 +25,13 @@ public class CropModel {
     int sellPrice; //팔때 최소 가격
     String[] img;
 
-    int humidity = 100;
-    int sunshine = 100;
-    int co2 = 100;
-    int fertilized = 100;
+    int humidity = 80;
+    int sunshine = 80;
+    int co2 = 80;
+    int fertilized = 80;
     boolean isFullyGrowed = false;
     int startDate;
-    int endDate = startDate + requiredDay;
+    int endDate;
     boolean isLive = true;
 
 
@@ -46,17 +49,31 @@ public class CropModel {
         this.img = img;
     }
 
+    public boolean[] getTodayDone(){
+        return todayDone;
+    }
+
+    // 시작 날짜 저장
+    public void setStartDate(int startDate){
+        this.startDate = startDate;
+    }
+
     // 수확까지 남은 날짜 조회
     public int getDateDiffInDays(){
         int day = dateModel.getDate();
-        return endDate - day;
+        endDate = startDate + requiredDay;
+
+        return endDate-day;
+
     }
 
     // 수확 날짜 계산해 imglevel 선정 후 이미지 반환
     public String levelimg(){
-        int leftday = getDateDiffInDays(); // 수확까지 남은 날짜
-        int liveday = requiredDay - leftday; //살아온 날짜
 
+        int leftday = getDateDiffInDays(); // 수확까지 남은 날짜
+        if(leftday<=0)
+            return img[2];
+        int liveday = requiredDay - leftday; //살아온 날짜
         if(liveday/leftday < requiredDay/3)
             return img[0];
         else if (liveday/leftday < requiredDay/3*2)
@@ -71,49 +88,70 @@ public class CropModel {
 
     //물주기, 햇볕, CO2, 비료, 칭찬
     public void waterSupply(){
-        humidity += STAT_INCREASE;
-        todayDone[0] = true;
-        if(humidity>ALIVE_RANGE[1]){
-            isLive = false;
+        getDateDiffInDays();
+        System.out.println("시작날"+startDate);
+        if(!todayDone[0]){
+            humidity += STAT_INCREASE;
+            todayDone[0] = true;
+            if(humidity>ALIVE_RANGE[1]) {
+                isLive = false;
+            }
         }
     }
 
     public void sunSupply(){
-        sunshine += STAT_INCREASE;
-        todayDone[1] = true;
-        if(sunshine>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[1]){
+            sunshine += STAT_INCREASE;
+            todayDone[1] = true;
+            if(sunshine>ALIVE_RANGE[1]) {
+                isLive = false;
+            }
         }
     }
 
     public void CO2Supply(){
-        co2 += STAT_INCREASE;
-        todayDone[2] = true;
-        if(co2>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[2]){
+            co2 += STAT_INCREASE;
+            todayDone[2] = true;
+            if(co2>ALIVE_RANGE[1]){
+                isLive = false;
+            }
         }
-
     }
 
     public void fertilizedSupply(){
-        fertilized += STAT_INCREASE;
-        todayDone[3] = true;
-        if(fertilized>ALIVE_RANGE[1]){
-            isLive = false;
+        if(!todayDone[3]){
+            fertilized += STAT_INCREASE;
+            todayDone[3] = true;
+            if(fertilized>ALIVE_RANGE[1]){
+                isLive = false;
+            }
         }
-
     }
 
     public void plusPrice(){
-        sellPrice += STAT_INCREASE;
-        todayDone[4] = true;
-
+        if(!todayDone[4]){
+            sellPrice += STAT_INCREASE;
+            todayDone[4] = true;
+        }
     }
 
     //현재 상태, 가격 조회
     public boolean getisLive(){
+        if(humidity<0){
+            return false;
+        }
+        else if(sunshine<0){
+            return false;
+        }
+        else if(fertilized<0)
+            return false;
+        else if(co2<0)
+            return false;
+
         return isLive;
     }
+
     public int getHumidity() {
         return humidity;
     }
@@ -130,7 +168,7 @@ public class CropModel {
         return fertilized;
     }
 
-    public int getsellPrice(){
+    public int getSellPrice(){
         if(isFullyGrowed = false)
             return 0;
         return sellPrice;
@@ -181,7 +219,7 @@ public class CropModel {
         return true;
     }
 
-    public boolean checkFetilized(){
+    public boolean checkFertilized(){
         if(fertilized <ALIVE_RANGE[0])
             return false;
         return true;
@@ -189,16 +227,28 @@ public class CropModel {
 
     // 다음날 될때 업데이트되는 값 humidity, sunshine, co2, fertilized
     public void updateNextDayHumidity(){
-        this.humidity -= NEXT_DAY_STAT_DECREASE;
+        Random random = new Random();
+        int randomDelta = random.nextInt(7) - 3; // -3부터 +3 사이의 랜덤 값 생성
+        this.humidity -= NEXT_DAY_STAT_DECREASE+randomDelta;
     }
     public void updateNextDaySunshine(){
-        this.sunshine -= NEXT_DAY_STAT_DECREASE;
+        Random random = new Random();
+        int randomDelta = random.nextInt(7) - 3; // -3부터 +3 사이의 랜덤 값 생성
+        this.sunshine -= NEXT_DAY_STAT_DECREASE+randomDelta;
     }
     public void updateNextDayCo2(){
-        this.co2 -= NEXT_DAY_STAT_DECREASE;
+        Random random = new Random();
+        int randomDelta = random.nextInt(7) - 3; // -3부터 +3 사이의 랜덤 값 생성
+        this.co2 -= NEXT_DAY_STAT_DECREASE+randomDelta;
     }
     public void updateNextDayFertilized(){
-        this.fertilized -= NEXT_DAY_STAT_DECREASE;
+        Random random = new Random();
+        int randomDelta = random.nextInt(7) - 3; // -3부터 +3 사이의 랜덤 값 생성
+        this.fertilized -= NEXT_DAY_STAT_DECREASE+randomDelta;
+    }
+
+    public void updateNextDayAct(){
+        this.todayDone = new boolean[]{false, false, false, false, false};
     }
 
 

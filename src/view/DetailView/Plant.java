@@ -1,16 +1,29 @@
 package view.DetailView;
 
+import controller.DetailController;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class Plant extends JPanel {
-  JLabel la_plantName = new JLabel("바질");
-  ImageIcon img_icon = new ImageIcon("src/assets/plants/새싹.jpeg");
-  JLabel la_plantImage;
+import controller.Controller;
+import model.CropModel;
 
-  Plant() {
+public class Plant extends JPanel {
+  JLabel la_plantName = new JLabel("");
+
+  JLabel la_plantImage;
+  ImageIcon img_icon;
+  Controller controller;
+
+  DetailController detailController;
+  Plant(Controller controller, CropModel cropModel) throws IOException {
+    this.controller = controller;
+    this.detailController = controller.detailController;
     // 패널 설정
     setPreferredSize(new Dimension(800, 600));
     setLayout(null);
@@ -18,6 +31,24 @@ public class Plant extends JPanel {
     // 폰트 설정
     la_plantName.setFont(new Font("", Font.BOLD, 42));
 
+    la_plantName.setText(detailController.getName());
+
+
+
+    if(detailController.checkBadCrop()){
+      URL imageURL = new URL(detailController.getLevelImg());
+      Image image = ImageIO.read(imageURL);
+      ImageIcon img_icon = new ImageIcon(image);
+      this.img_icon=img_icon;
+
+    }else{
+      ImageIcon image = new ImageIcon("src/assets/plants/죽음.jpg");
+      int width = 300; // 최대 너비를 300으로 설정 (원하는 크기에 맞게 조절)
+      int height = 200; // 최대 높이를 300으로 설정 (원하는 크기에 맞게
+      Image scaledImage = image.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+      ImageIcon img_icon = new ImageIcon(scaledImage);
+      this.img_icon =img_icon;
+    }
     // la_plantName과 la_plantImage를 패널에 추가
     add(la_plantName);
     la_plantImage = new JLabel();
@@ -41,7 +72,7 @@ public class Plant extends JPanel {
     int nameWidth = la_plantName.getPreferredSize().width;
     int nameHeight = la_plantName.getPreferredSize().height;
     int nameX = (getWidth() - nameWidth) / 2;
-    int nameY = 50;  // 상단에서 약간의 간격
+    int nameY = 30;  // 상단에서 약간의 간격
     la_plantName.setBounds(nameX, nameY, nameWidth, nameHeight);
 
     // la_plantImage 크기 조절 및 중앙 정렬
@@ -64,17 +95,5 @@ public class Plant extends JPanel {
     int imageX = (getWidth() - imageWidth) / 2;
     int imageY = nameY + nameHeight + 20;  // la_plantName 아래에 약간의 간격
     la_plantImage.setBounds(imageX, imageY, imageWidth, imageHeight);
-  }
-
-  // main 메소드에서 테스트할 수 있습니다.
-  public static void main(String[] args) {
-    JFrame frame = new JFrame("Plant Test");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(800, 600);
-
-    Plant plantPanel = new Plant();
-    frame.add(plantPanel);
-
-    frame.setVisible(true);
   }
 }

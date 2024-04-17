@@ -1,39 +1,50 @@
 package controller;
 
+import model.Corn;
+import model.CropModel;
 import model.DateModel;
 import model.FarmModel;
 import model.StoreModel;
-import model.UserModel;
+import model.WeatherModel;
+
+
+import com.sun.tools.javac.Main;
+
+import model.*;
+
 import view.View;
 
 import java.util.Date;
 
 public class Controller {
 
-
-
-//  public DetailController detailController;
-
-
-    public StoreController storeController = new StoreController(new StoreModel());
-    public WeatherController weatherController;
+    public DetailController detailController;
+    public LoginController loginController;
+    public StoreController storeController;
     public FarmController farmController;
-
-    public UserModel userModel;
-    public DateModel dateModel;
-    public FarmModel farmModel;
+    public MainPageController mainPageController;
     final View view;
 
-    public Controller() {
-        userModel = new UserModel();
-        dateModel = new DateModel();
-        farmModel = new FarmModel(userModel,dateModel);
 
-        weatherController = new WeatherController();
-       // detailController = new DetailController(new Corn(),new FarmModel(new UserModel(new DateModel())));
+    public Controller() {
+        WeatherModel weatherModel = new WeatherModel();
+        UserModel userModel = new UserModel();
+        DateModel dateModel = new DateModel();
+        FarmModel farmModel = new FarmModel(userModel,dateModel, this);
+        StoreModel storeModel = new StoreModel(dateModel, userModel,farmModel, this);
+
+
+        this.detailController= new DetailController(this);
         farmController = new FarmController(farmModel);
+        mainPageController = new MainPageController(weatherModel,dateModel);
+        storeController = new StoreController(storeModel);
+        loginController = new LoginController(userModel);
         this.view = new View(this);
+
+
     }
+
+
 
     public void goToStorePage() {
         view.showStoreView();
@@ -47,4 +58,3 @@ public class Controller {
     }
 
 }
-
