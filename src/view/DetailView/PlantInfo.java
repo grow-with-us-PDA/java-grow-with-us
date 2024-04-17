@@ -1,5 +1,7 @@
 package view.DetailView;
 
+import controller.Controller;
+import controller.DetailController;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -14,13 +16,16 @@ public class PlantInfo extends JPanel {
   JLabel la_fertilized = new JLabel("토양: ");
   JLabel la_sellPrice = new JLabel("현재 가격: ");
 CropModel cropModel;
+DetailController detailController;
 
-  PlantInfo(CropModel cropModel){
+  PlantInfo(Controller controller,CropModel cropModel){
     this.cropModel=cropModel;
+    this.detailController=controller.detailController;
+
     setBackground(Color.white);
     setPreferredSize(new Dimension(300, 210));
 
-    System.out.println("이산화탄소 "+cropModel.getCO2());
+
 
 //    setLayout(new BorderLayout());
 
@@ -39,11 +44,11 @@ CropModel cropModel;
     la_fertilized.setBorder(new EmptyBorder(0, 10, 10, 10));
     la_sellPrice.setBorder(new EmptyBorder(0, 10, 10, 10));
 
-    la_humidity.setText("습도: "+cropModel.getHumidity());
-    la_sunshine.setText("햇볕: "+cropModel.getSunshine());
-    la_co2.setText("이산화탄소: "+cropModel.getCO2());
-    la_fertilized.setText("토양: "+cropModel.getFertilized());
-    la_sellPrice.setText("현재 가격: "+cropModel.getSellPrice());
+    la_humidity.setText("습도: "+detailController.getHumidity());
+    la_sunshine.setText("햇볕: "+detailController.getSunshine());
+    la_co2.setText("이산화탄소: "+detailController.getCO2());
+    la_fertilized.setText("토양: "+detailController.getFertilized());
+    la_sellPrice.setText("현재 가격: "+detailController.getSellPrice());
 
     add(la_currentStatus);
     add(la_humidity);
@@ -57,11 +62,11 @@ CropModel cropModel;
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
 
-    la_humidity.setText("습도: "+cropModel.getHumidity());
-    la_sunshine.setText("햇볕: "+cropModel.getSunshine());
-    la_co2.setText("이산화탄소: "+cropModel.getCO2());
-    la_fertilized.setText("토양: "+cropModel.getFertilized());
-    la_sellPrice.setText("현재 가격: "+cropModel.getSellPrice());
+    la_humidity.setText("습도: "+detailController.getHumidity());
+    la_sunshine.setText("햇볕: "+detailController.getSunshine());
+    la_co2.setText("이산화탄소: "+detailController.getCO2());
+    la_fertilized.setText("토양: "+detailController.getFertilized());
+    la_sellPrice.setText("현재 가격: "+detailController.getSellPrice());
   }
 
 }

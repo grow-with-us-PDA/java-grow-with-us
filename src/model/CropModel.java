@@ -25,10 +25,10 @@ public class CropModel {
     int sellPrice; //팔때 최소 가격
     String[] img;
 
-    int humidity = 100;
-    int sunshine = 100;
-    int co2 = 100;
-    int fertilized = 100;
+    int humidity = 80;
+    int sunshine = 80;
+    int co2 = 80;
+    int fertilized = 80;
     boolean isFullyGrowed = false;
     int startDate;
     int endDate;

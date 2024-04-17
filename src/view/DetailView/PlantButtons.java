@@ -1,5 +1,6 @@
 package view.DetailView;
 
+import controller.DetailController;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -20,9 +21,10 @@ public class PlantButtons extends JPanel implements ActionListener {
   JButton[] buttons = new JButton[texts.length];
   CropModel cropModel;
   PlantInfo plantInfo;
+  DetailController detailController;
 
   PlantButtons(Controller controller, CropModel cropModel, PlantInfo plantInfo) {
-
+    this.detailController=controller.detailController;
     this.cropModel=cropModel;
     this.plantInfo=plantInfo;
     setPreferredSize(new Dimension(30, 10));
@@ -33,29 +35,29 @@ public class PlantButtons extends JPanel implements ActionListener {
 
       buttons[i].setPreferredSize(new Dimension(283, 55));
       buttons[i].setFont(new Font("돋음", Font.PLAIN, 16));
-      if(cropModel.getTodayDone()[i]){
+      if(detailController.getTodayDone()[i]){
         buttons[i].setEnabled(false);
       }
       if(i==0){
-        if(!cropModel.checkWater()){
+        if(!detailController.checkWater()){
           buttons[i].setForeground(Color.RED);
         }
 
       }
       else if(i==1){
-        if(!cropModel.checkSunshine()){
+        if(!detailController.checkSunshine()){
           buttons[i].setForeground(Color.RED);
         }
 
       }
       else if(i==2){
-        if(!cropModel.checkCO2()){
+        if(!detailController.checkCO2()){
           buttons[i].setForeground(Color.RED);
         }
 
       }
       else if(i==3){
-        if(!cropModel.checkFertilized()){
+        if(!detailController.checkFertilized()){
           buttons[i].setForeground(Color.RED);
         }
 
@@ -73,20 +75,20 @@ public class PlantButtons extends JPanel implements ActionListener {
       if (e.getSource() == buttons[i]) {
 
         if(i==0){
-          cropModel.waterSupply();
-//          System.out.println(cropModel.getHumidity());
+          detailController.waterSupply();
+
         }
         else if(i==1){
-          cropModel.sunSupply();
+          detailController.sunSupply();
         }
         else if(i==2){
-          cropModel.CO2Supply();
+          detailController.CO2Supply();
         }
         else if(i==3){
-          cropModel.fertilizedSupply();
+          detailController.fertilizedSupply();
         }
         else{
-          cropModel.plusPrice();
+          detailController.plusPrice();
         }
 
         plantInfo.repaint();
@@ -102,29 +104,29 @@ public class PlantButtons extends JPanel implements ActionListener {
 
     for (int i = 0 ; i < texts.length ; i++) {
 
-      if(cropModel.getTodayDone()[i]){
+      if(detailController.getTodayDone()[i]){
         buttons[i].setEnabled(false);
       }
       if(i==0){
-        if(!cropModel.checkWater()){
+        if(!detailController.checkWater()){
           buttons[i].setForeground(Color.RED);
         }
 
       }
       else if(i==1){
-        if(!cropModel.checkSunshine()){
+        if(!detailController.checkSunshine()){
           buttons[i].setForeground(Color.RED);
         }
 
       }
       else if(i==2){
-        if(!cropModel.checkCO2()){
+        if(!detailController.checkCO2()){
           buttons[i].setForeground(Color.RED);
         }
 
       }
       else if(i==3){
-        if(!cropModel.checkFertilized()){
+        if(!detailController.checkFertilized()){
           buttons[i].setForeground(Color.RED);
         }
 

@@ -16,6 +16,7 @@ import model.CropModel;
 public class Buttons extends JPanel implements ActionListener {
     String[] texts = new String[]{"팔기", "돌아가기"};
     JButton[] buttons = new JButton[texts.length];
+
     CropModel cropModel;
     Controller controller;
 

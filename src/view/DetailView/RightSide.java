@@ -11,7 +11,7 @@ import model.CropModel;
 public class RightSide extends JPanel {
 
   RightSide(Controller controller, CropModel cropModel) {
-    PlantInfo plantInfo = new PlantInfo(cropModel);
+    PlantInfo plantInfo = new PlantInfo(controller,cropModel);
     PlantButtons plantButtons = new PlantButtons(controller,cropModel,plantInfo);
     Buttons buttons = new Buttons(controller,cropModel);
 
