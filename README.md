@@ -71,6 +71,6 @@
 
 
 ## 부록
-[[JAVA] 미니프로젝트 - 별장 회고.pdf](https://github.com/grow-with-us-PDA/.github/files/15005240/JAVA.-.pdf)
+[[JAVA] 미니프로젝트 - 별장 발표자료.pdf](https://github.com/grow-with-us-PDA/.github/files/15005240/JAVA.-.pdf)
 
 
