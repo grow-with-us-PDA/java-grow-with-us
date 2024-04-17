@@ -1,5 +1,6 @@
 package view.DetailView;
 
+import controller.DetailController;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -18,20 +19,24 @@ public class Plant extends JPanel {
   JLabel la_plantImage;
   ImageIcon img_icon;
   Controller controller;
+
+  DetailController detailController;
   Plant(Controller controller, CropModel cropModel) throws IOException {
     this.controller = controller;
+    this.detailController = controller.detailController;
     // 패널 설정
     setPreferredSize(new Dimension(800, 600));
     setLayout(null);
 
     // 폰트 설정
     la_plantName.setFont(new Font("", Font.BOLD, 42));
-    la_plantName.setText(cropModel.getName());
 
-    System.out.println(cropModel.levelimg());
+    la_plantName.setText(detailController.getName());
 
-    if(cropModel.checkbadCrop()){
-      URL imageURL = new URL(cropModel.levelimg());
+
+
+    if(detailController.checkBadCrop()){
+      URL imageURL = new URL(detailController.getLevelImg());
       Image image = ImageIO.read(imageURL);
       ImageIcon img_icon = new ImageIcon(image);
       this.img_icon=img_icon;

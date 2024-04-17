@@ -25,8 +25,9 @@ public class DetailController {
 //    this.location = location;
 //    this.cropModel = this.farmModel.getCropByLocation(location);
 //    // num으로 객체 찾고
-
+        this.cropModel = cropModel;
         this.detailView = new DetailView(controller, cropModel);
+
 
     }
 
@@ -34,6 +35,10 @@ public class DetailController {
     // 상태조회 (이미지,이름, 습도, 햇볕, 토양, 현재 가격)
     public String getLevelImg() {
         return cropModel.levelimg();
+    }
+
+    public int getSunshine(){
+        return cropModel.getSunshine();
     }
 
     public String getName() {
@@ -59,6 +64,12 @@ public class DetailController {
     // 행위가 필요한지 체크
     public boolean checkWater() {
         return cropModel.checkWater();
+    }
+
+
+
+    public boolean checkBadCrop(){
+        return cropModel.checkbadCrop();
     }
 
     public boolean checkSunshine() {
@@ -99,8 +110,8 @@ public class DetailController {
         farmModel.sellCrop(location);
     }
 
-  public void getTodayDone(){
-    cropModel.getTodayDone();
+  public boolean[] getTodayDone(){
+    return cropModel.getTodayDone();
   }
 
 
